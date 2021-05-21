@@ -3,7 +3,8 @@ package contract;
 /**
  * The Interface IView.
  *
- * @author Jean-Aymeric Diet
+ * @author Paul-Kamga
+ * @version 0.1
  */
 public interface IView {
 
@@ -13,5 +14,10 @@ public interface IView {
 	 * @param message
 	 *          the message
 	 */
-	void printMessage(final String message);
+	  void displayMessage(String message);
+	  
+	  /**
+	     * Follow Rockford.
+	     */
+	    void followRockford();
 }

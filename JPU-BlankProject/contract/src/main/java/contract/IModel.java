@@ -1,35 +1,26 @@
 package contract;
 
-import java.util.Observable;
-
-import entity.HelloWorld;
 
 /**
- * The Interface IModel.
+ * <h1>The Interface IModel.</h1>
  *
- * @author Jean-Aymeric Diet
+ * @author Paul-Kamga
+ * @version 0.1
  */
 public interface IModel {
 
-	/**
-	 * Gets the hello world.
-	 *
-	 * @return the helloworld entity
-	 */
-	HelloWorld getHelloWorld();
+    /**
+     * Gets the road.
+     *
+     * @return the road
+     */
+    ILevel getLevel();
 
-	/**
-	 * Load the message.
-	 *
-	 * @param code
-	 *          the code
-	 */
-	void loadHelloWorld(String code);
+    /**
+     * Gets the my vehicle.
+     *
+     * @return the myVehicle
+     */
+    IActor getRockford();
 
-	/**
-	 * Gets the observable.
-	 *
-	 * @return the observable
-	 */
-	Observable getObservable();
 }

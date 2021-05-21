@@ -1,85 +1,81 @@
 package model;
 
-import java.sql.SQLException;
 import java.util.Observable;
+import java.io.IOException;
 
+import contract.IActor;
+import contract.ILevel;
 import contract.IModel;
-import entity.HelloWorld;
+import Entity.Rockford;
+
 
 /**
- * The Class Model.
+ * <h1>The Class Model.</h1>
  *
- * @author Jean-Aymeric Diet
+ * @author Paul-Kamga
  */
 public final class Model extends Observable implements IModel {
 
-	/** The helloWorld. */
-	private HelloWorld helloWorld;
 
-	/**
-	 * Instantiates a new model.
-	 */
-	public Model() {
-		this.helloWorld = new HelloWorld();
-	}
+    /** The road. */
+    private ILevel   level;
 
-	/**
-     * Gets the hello world.
+    /** The my vehicle. */
+    private IActor rockford;
+
+    /**
+     * Instantiates a new insane vehicles model.
      *
-     * @return the hello world
+     * @param fileName
+     *            the file name
+     * @param rockfordStartX
+     *            the rockford start X
+     * @param rockfordStartY
+     *            the rockford start Y
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
      */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage()
-	 */
-	public HelloWorld getHelloWorld() {
-		return this.helloWorld;
-	}
+    public Model(final String fileName, final int rockfordStartX, final int rockfordStartY)
+            throws IOException {
+        this.setLevel(new Level(fileName));
+        this.setRockford(new Rockford(rockfordStartX, rockfordStartY, this.getLevel()));
+    }
 
-	/**
-     * Sets the hello world.
-     *
-     * @param helloWorld
-     *            the new hello world
+    /* (non-Javadoc)
+     * @see fr.exia.insanevehicles.model.IInsaneVehiclesModel#getRoad()
      */
-	private void setHelloWorld(final HelloWorld helloWorld) {
-		this.helloWorld = helloWorld;
-		this.setChanged();
-		this.notifyObservers();
-	}
+    @Override
+    public final ILevel getLevel() {
+        return this.level;
+    }
 
-	/**
-     * Load hello world.
+    /**
+     * Sets the road.
      *
-     * @param code
-     *            the code
+     * @param road
+     *            the road to set
      */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getMessage(java.lang.String)
-	 */
-	public void loadHelloWorld(final String code) {
-		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setHelloWorld(daoHelloWorld.find(code));
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-	}
+    private void setLevel(final ILevel level) {
+        this.level = level;
+    }
 
-	/**
-     * Gets the observable.
-     *
-     * @return the observable
+    /* (non-Javadoc)
+     * @see fr.exia.insanevehicles.model.IInsaneVehiclesModel#getMyVehicle()
      */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IModel#getObservable()
-	 */
-	public Observable getObservable() {
-		return this;
-	}
+    @Override
+    public final IActor getRockford() {
+        return this.rockford;
+    }
+
+    /**
+     * Sets the my vehicle.
+     *
+     * @param myVehicle
+     *            the myVehicle to set
+     */
+    private void setRockford(final IActor rockford) {
+        this.rockford = rockford;
+    }	
+	
+	
 }

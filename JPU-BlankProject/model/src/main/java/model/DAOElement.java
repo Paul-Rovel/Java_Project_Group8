@@ -12,7 +12,7 @@ import entity.HelloWorld;
  *
  * @author Jean-Aymeric Diet
  */
-class DAOHelloWorld extends DAOEntity<HelloWorld> {
+ class DAOElement extends DAOEntity<HelloWorld> {
 
 	/**
 	 * Instantiates a new DAO hello world.
@@ -22,7 +22,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 * @throws SQLException
 	 *           the SQL exception
 	 */
-	public DAOHelloWorld(final Connection connection) throws SQLException {
+	public DAOElement(final Connection connection) throws SQLException {
 		super(connection);
 	}
 
@@ -84,11 +84,17 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 		return null;
 	}
 
+	@Override
+	public HelloWorld find(String code) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see model.DAOEntity#find(java.lang.String)
-	 */
+	 *
 	@Override
 	public HelloWorld find(final String code) {
 		HelloWorld helloWorld = new HelloWorld();
@@ -107,6 +113,6 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}*/
 
 }

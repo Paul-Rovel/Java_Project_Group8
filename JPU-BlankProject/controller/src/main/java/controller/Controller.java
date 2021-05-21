@@ -1,94 +1,188 @@
 package controller;
 
-import contract.ControllerOrder;
+import java.io.IOException;
+
+import javax.management.modelmbean.ModelMBean;
+
+import contract.IElement;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import contract.IOrderPerformer;
+import contract.ILevel;
+import contract.ControllerOrder;
+import model.DBConnection;
 
 /**
- * The Class Controller.
+ * <h1>The Class InsaneVehiclesController.</h1>
+ *
+ * @author Paul-Kamga
+ * @version 0.1
+ * @see IOrderPerformer
  */
-public final class Controller implements IController {
+public final class Controller implements IController, IOrderPerformer {
 
-	/** The view. */
-	private IView		view;
+    /** The Constant speed. */
+    private static final int     speed = 100;
 
-	/** The model. */
-	private IModel	model;
+    /** The view. */
+    private IView  view;
 
-	/**
-	 * Instantiates a new controller.
-	 *
-	 * @param view
-	 *          the view
-	 * @param model
-	 *          the model
-	 */
-	public Controller(final IView view, final IModel model) {
-		this.setView(view);
-		this.setModel(model);
-	}
+    /** The model. */
+    private IModel model;
 
-	/**
-     * Control.
+    /** The stack order. */
+    private ControllerOrder stackOrder;
+    
+    private DBConnection dao;
+
+    /**
+     * Instantiates a new insane vehicles controller.
+     *
+     * @param view
+     *            the view
+     * @param model
+     *            the model
      */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IController#control()
-	 */
-	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
-	}
+    public Controller(final IView view, final IModel model) {
+        this.setView(view);
+        this.setModel(model);
+        this.clearStackOrder();
+        this.dao = new DBConnection();
+    }
 
-	/**
+    /*
+     * (non-Javadoc)
+     * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#play()
+     */
+    @Override
+    public final void play() throws InterruptedException {
+        while (this.getModel().getRockford().isAlive()) {
+            Thread.sleep(speed);
+            switch (this.getStackOrder()) {
+                case RIGHT:
+                    this.getModel().getRockford().moveRight();
+                    break;
+                case LEFT:
+                    this.getModel().getRockford().moveLeft();
+                    break;
+                case UP:
+                    this.getModel().getRockford().moveUp();
+                    break;
+                case DOWN:
+                    this.getModel().getRockford().moveDown();
+                    break;
+                case NOP:
+                	 this.getModel().getRockford().doNothing();
+                     break;
+                default:
+                    this.getModel().getRockford().doNothing();
+                    break;
+            }
+            this.clearStackOrder();
+            if (this.getModel().getRockford().isAlive()) {
+             
+            }
+            this.getView().followRockford();
+        }
+        this.getView().displayMessage("!!!!!!!!! CRUSED !!!!!!!!!.");
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see fr.exia.insanevehicles.controller.IOrderPerformed#orderPerform(fr.exia.insanevehicles.
+     * controller.UserOrder)
+     */
+    /*
+     * (non-Javadoc)
+     * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#orderPerform(fr.exia.
+     * insanevehicles.controller.UserOrder)
+     */
+    @Override
+    public final void orderPerform(final ControllerOrder controllerOrder) throws IOException {
+        this.setStackOrder(controllerOrder);
+    }
+
+    /**
+     * Gets the view.
+     *
+     * @return the view
+     */
+    private IView getView() {
+        return this.view;
+    }
+
+    /**
      * Sets the view.
      *
-     * @param pview
-     *            the new view
+     * @param view
+     *            the view to set
      */
-	private void setView(final IView pview) {
-		this.view = pview;
-	}
+    private void setView(final IView view) {
+        this.view = view;
+    }
 
-	/**
-	 * Sets the model.
-	 *
-	 * @param model
-	 *          the new model
-	 */
-	private void setModel(final IModel model) {
-		this.model = model;
-	}
-
-	/**
-     * Order perform.
+    /**
+     * Gets the model.
      *
-     * @param controllerOrder
-     *            the controller order
+     * @return the model
      */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
-	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
-			case English:
-				this.model.loadHelloWorld("GB");
-				break;
-			case Francais:
-				this.model.loadHelloWorld("FR");
-				break;
-			case Deutsch:
-				this.model.loadHelloWorld("DE");
-				break;
-			case Indonesia:
-				this.model.loadHelloWorld("ID");
-				break;
-			default:
-				break;
-		}
+    private IModel getModel() {
+        return this.model;
+    }
+
+    /**
+     * Sets the model.
+     *
+     * @param model
+     *            the model to set
+     */
+    private void setModel(final IModel model) {
+        this.model = model;
+    }
+
+    /**
+     * Gets the stack order.
+     *
+     * @return the stack order
+     */
+    private ControllerOrder getStackOrder() {
+        return this.stackOrder;
+    }
+
+    /**
+     * Sets the stack order.
+     *
+     * @param stackOrder
+     *            the new stack order
+     */
+    private void setStackOrder(final ControllerOrder stackOrder) {
+        this.stackOrder = stackOrder;
+    }
+
+    /**
+     * Clear stack order.
+     */
+    private void clearStackOrder() {
+        this.stackOrder = ControllerOrder.NOP;
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#getOrderPeformer()
+     */
+    @Override
+    public IOrderPerformer getOrderPeformer() {
+        return this;
+    }
+
+	@Override
+	public void control() {
+		// TODO Auto-generated method stub
+		
 	}
 
+    
+	
+   
 }
