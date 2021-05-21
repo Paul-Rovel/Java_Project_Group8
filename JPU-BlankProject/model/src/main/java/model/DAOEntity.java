@@ -8,7 +8,7 @@ import entity.Entity;
 /**
  * The Class DAOEntity.
  *
- * @author Jean-Aymeric Diet
+ * @author Paul-Kamga
  *
  * @param <E>
  *          the element type

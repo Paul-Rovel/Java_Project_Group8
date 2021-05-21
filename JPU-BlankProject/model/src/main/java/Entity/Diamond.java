@@ -13,7 +13,7 @@ import contract.Sprite;
 public class Diamond extends Object {
 
 	/** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('2', "Diamond.jpg");
+    private static final Sprite SPRITE = new Sprite('2', "Diamond.png");
     private static String NAME = "Diamond";
 
     /**

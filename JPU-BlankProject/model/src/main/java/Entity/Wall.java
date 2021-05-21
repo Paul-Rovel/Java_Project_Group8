@@ -13,7 +13,7 @@ import contract.Sprite;
 public class Wall extends Object {
 
 	/** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('4', "Wall.jpg");
+    private static final Sprite SPRITE = new Sprite('4', "Wall.png");
     private static String NAME = "Wall";
 
     /**
