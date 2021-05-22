@@ -14,12 +14,12 @@ public class Level extends Observable implements ILevel {
 
 
     /** The width. */
-    private int width;
+    public int width;
 
     /** The height. */
-    private int height;
+    public int height;
 
-    /** The on the road. */
+    /** The on the level. */
     private IElement[][] onTheLevel;
 
     /**

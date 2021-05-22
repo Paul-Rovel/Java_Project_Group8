@@ -2,7 +2,7 @@ package Entity;
 
 import contract.Permeability;
 import contract.Sprite;
-
+import contract.ILevel;
 
 public class Object extends Element {
 
@@ -18,4 +18,13 @@ public class Object extends Element {
         super(sprite, permeability);
     }
 
+    public boolean fall(boolean fall) {
+		if (fall = true) {getLevel().getOnTheLevelXY(setX(getX()), setY(getY()+1));}
+    	return fall;
+    	
+    }
+    
+    public ILevel getLevel() {
+        return this.level;
+    }
 }

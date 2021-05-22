@@ -18,7 +18,7 @@ import contract.Sprite;
 public class Actor extends Element implements IActor {
 
     /**
-     * The x.
+     * The x and The y.
      */
     private Point position;
 
@@ -73,8 +73,10 @@ public class Actor extends Element implements IActor {
      */
     @Override
     public void moveUp() {
+    	if (this.getY() > 0) {
         this.setY(this.getY() - 1);
         this.setHasMoved();
+        }
     }
 
     /*
@@ -83,8 +85,10 @@ public class Actor extends Element implements IActor {
      */
     @Override
     public void moveLeft() {
+    	if (this.getX() > 0) {
         this.setX(this.getX() - 1);
         this.setHasMoved();
+        }
     }
 
     /*
@@ -93,8 +97,10 @@ public class Actor extends Element implements IActor {
      */
     @Override
     public void moveDown() {
+    	if (this.getY() < 9) {
         this.setY(this.getY() + 1);
         this.setHasMoved();
+        }
     }
 
     /*
@@ -103,8 +109,10 @@ public class Actor extends Element implements IActor {
      */
     @Override
     public void moveRight() {
+    	if (this.getX() < this.getLevel().getWidth()-1) {
         this.setX(this.getX() + 1);
         this.setHasMoved();
+        }
     }
 
     /*
@@ -117,7 +125,7 @@ public class Actor extends Element implements IActor {
     }
 
     /**
-     * Sets the has moved.
+     * Sets the actor has moved.
      */
     private void setHasMoved() {
         this.getLevel().setActorHasChanged();
@@ -138,11 +146,13 @@ public class Actor extends Element implements IActor {
      * @param x
      *            the new x
      */
+ 
     public final void setX(final int x) {
-        this.getPosition().x = x;
+    	 this.getPosition().x = x;
         if (this.isCrushed()) {
             this.die();
         }
+       
     }
 
     /*
@@ -244,4 +254,7 @@ public class Actor extends Element implements IActor {
     protected IBoard getBoard() {
         return this.board;
     }
+   
+  
+    
 }
