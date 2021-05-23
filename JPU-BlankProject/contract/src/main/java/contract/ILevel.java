@@ -1,5 +1,6 @@
 package contract;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 /**
@@ -56,6 +57,9 @@ public interface ILevel {
 
     public void addPawn(final IActor pawn);
     
+	/** @return The pawns on the current map */
+	public ArrayList<IActor> getPawns();
+	
     /**
      * Gets the observable.
      *
