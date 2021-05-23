@@ -35,7 +35,7 @@ public interface ILevel {
      *            the y
      * @return the on the level XY
      */
-    IElement getOnTheLevelXY(int x, int y);
+    public IElement getOnTheLevelXY(int x, int y);
     
     /**
      * Sets the on the level XY.
@@ -50,10 +50,12 @@ public interface ILevel {
     void setOnTheLevelXY(final IElement element, final int x, final int y);
 
     /**
-     * Sets the Actor has changed.
+     * Sets that the Actor has changed.
      */
     void setActorHasChanged();
 
+    public void addPawn(final IActor pawn);
+    
     /**
      * Gets the observable.
      *

@@ -320,7 +320,7 @@ public class Actor extends Element implements IActor {
     }
    
     public void digDirt() {
-		this.getLevel().setOnTheLevelXY(this.getX(), this.getY(), ObjectFactory.createEmptyspace());
+		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getY(), this.getX());
 		try {
 			this.getLevel().getOnTheLevelXY(getX(), getY()).getSprite().loadImage();
 
