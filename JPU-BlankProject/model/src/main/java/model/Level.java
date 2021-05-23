@@ -4,8 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Observable;
 
+import contract.IActor;
 import contract.IElement;
 import contract.ILevel;
 import Entity.ObjectFactory;
@@ -21,6 +23,9 @@ public class Level extends Observable implements ILevel {
 
     /** The on the level. */
     private IElement[][] onTheLevel;
+    
+    /** The pawn list */
+	  private ArrayList<IActor> pawns;
 
     /**
      * Instantiates a new level with the content of the file fileName.
@@ -143,5 +148,11 @@ public class Level extends Observable implements ILevel {
     public Observable getObservable() {
         return this;
     }
+
+	@Override
+	public void addPawn(IActor pawn) {
+		this.pawns.add(pawn);
+		
+	}
 	
 }
