@@ -20,7 +20,7 @@ public class Ground extends Object {
      * Instantiates a new Ground.
      */
     Ground() {
-        super(SPRITE, Permeability.BLOCKING);
+        super(SPRITE, Permeability.PENETRABLE);
         this.name = NAME;
     }
 }

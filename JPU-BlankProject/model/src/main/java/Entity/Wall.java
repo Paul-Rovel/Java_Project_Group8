@@ -20,7 +20,7 @@ public class Wall extends Object {
      * Instantiates a new Wall.
      */
     Wall() {
-        super(SPRITE, Permeability.BLOCKING);
+        super(SPRITE, Permeability.PENETRABLE);
         this.name = NAME;
     }
     

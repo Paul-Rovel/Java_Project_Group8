@@ -23,8 +23,5 @@ public class Object extends Element {
     	return fall;
     	
     }
-    
-    public ILevel getLevel() {
-        return this.level;
-    }
+ 
 }

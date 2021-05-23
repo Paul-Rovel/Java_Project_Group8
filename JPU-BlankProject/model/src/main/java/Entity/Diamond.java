@@ -20,7 +20,7 @@ public class Diamond extends Object {
      * Instantiates a new Diamond.
      */
     Diamond() {
-        super(SPRITE, Permeability.BLOCKING);
+        super(SPRITE, Permeability.PENETRABLE);
         this.name = NAME;
     }
 }

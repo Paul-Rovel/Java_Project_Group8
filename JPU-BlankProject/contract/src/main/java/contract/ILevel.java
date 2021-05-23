@@ -36,6 +36,18 @@ public interface ILevel {
      * @return the on the level XY
      */
     IElement getOnTheLevelXY(int x, int y);
+    
+    /**
+     * Sets the on the level XY.
+     *
+     * @param element
+     *            the element
+     * @param x
+     *            the x
+     * @param y
+     *            the y
+     */
+    void setOnTheLevelXY(final IElement element, final int x, final int y);
 
     /**
      * Sets the Actor has changed.

@@ -119,9 +119,10 @@ public class Level extends Observable implements ILevel {
      *            the x
      * @param y
      *            the y
+     * @return 
      */
-    private void setOnTheLevelXY(final IElement element, final int x, final int y) {
-        this.onTheLevel[x][y] = element;
+    public void setOnTheLevelXY(final IElement element, final int x, final int y) {
+         this.onTheLevel[x][y] = element;
     }
 
     /*

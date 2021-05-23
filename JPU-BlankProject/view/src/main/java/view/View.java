@@ -81,7 +81,7 @@ public class View implements Runnable, KeyListener, IView {
      */
     @Override
     public final void run() {
-        final BoardFrame boardFrame = new BoardFrame("Close view");
+        final BoardFrame boardFrame = new BoardFrame("Boulder Dash Group 8");
         boardFrame.setDimension(new Dimension(this.getLevel().getWidth(), this.getLevel().getHeight()));
         boardFrame.setDisplayFrame(this.closeView);
         boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
