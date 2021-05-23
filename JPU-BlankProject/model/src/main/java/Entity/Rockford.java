@@ -24,7 +24,7 @@ public class Rockford extends Actor {
     private static final Sprite spritemoveDown = new Sprite('H', "Rockforddown.png");
     
     /** The Constant spriteExplode. */
-    private static final Sprite spriteExplode   = new Sprite('H', "Rockforddie.png");
+    private static final Sprite spriteDie   = new Sprite('H', "Rockforddie.png");
 
     /**
      * Instantiates a new rockford.
@@ -44,7 +44,7 @@ public class Rockford extends Actor {
         spritemoveRight.loadImage();
         spritemoveUp.loadImage();
         spritemoveDown.loadImage();
-        spriteExplode.loadImage();
+        spriteDie.loadImage();
     }
 
     /*
@@ -94,7 +94,7 @@ public class Rockford extends Actor {
     @Override
     protected final void die() {
         super.die();
-        this.setSprite(spriteExplode);
+        this.setSprite(spriteDie);
     }
 
     /*

@@ -1,6 +1,7 @@
 package Entity;
 
 import java.awt.Point;
+import java.io.IOException;
 
 import fr.exia.showboard.IBoard;
 import contract.IActor;
@@ -126,7 +127,7 @@ public class Actor extends Element implements IActor {
     		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Emptyspace ) {
     	this.setX(this.getX()-1);
     		}
-        this.setHasMoved();	
+        this.setHasMoved();	this.getLevel().get
         }
     }
 
@@ -318,6 +319,14 @@ public class Actor extends Element implements IActor {
         return this.board;
     }
    
-  
+    public void digDirt() {
+		this.getLevel().setOnTheLevelXY(this.getX(), this.getY(), ObjectFactory.createEmptyspace());
+		try {
+			this.getLevel().getOnTheLevelXY(getX(), getY()).getSprite().loadImage();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
     
 }
