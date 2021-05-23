@@ -70,7 +70,7 @@ public class Level extends Observable implements ILevel {
 
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.IRoad#getWidth()
+     * @see contract.ILevel#getWidth()
      */
     @Override
     public final int getWidth() {
@@ -153,6 +153,12 @@ public class Level extends Observable implements ILevel {
 	public void addPawn(IActor pawn) {
 		this.pawns.add(pawn);
 		
+	
+	}
+
+	@Override
+	public ArrayList<IActor> getPawns() {
+		 return this.pawns;
 	}
 	
 }
