@@ -81,11 +81,10 @@ public class View implements Runnable, KeyListener, IView {
      */
     @Override
     public final void run() {
-        final BoardFrame boardFrame = new BoardFrame("Boulder Dash Group 8");
+        final BoardFrame boardFrame = new BoardFrame("Boulder Dash Group");
         boardFrame.setDimension(new Dimension(this.getLevel().getWidth(), this.getLevel().getHeight()));
         boardFrame.setDisplayFrame(this.closeView);
         boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
-        boardFrame.setHeightLooped(true);
         boardFrame.addKeyListener(this);
         boardFrame.setFocusable(true);
         boardFrame.setFocusTraversalKeysEnabled(false);

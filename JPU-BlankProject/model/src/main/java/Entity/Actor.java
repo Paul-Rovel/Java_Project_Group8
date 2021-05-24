@@ -82,14 +82,18 @@ public class Actor extends Element implements IActor {
     		}
     		getOnTheLevelXY(getX(), getY()-1);
     		
-    		this.setOnTheLevelXY(ObjectFactory.getFromFileSymbol(line.toCharArray()[x]), x, y);
+    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getY(), this.getX());
         }
     }*/
     @Override
     public void moveUp() { 
     	if (this.getY() > 0) {
-    		if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Wall || this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Boulder ){this.setY((this.getY()));	
-    		System.out.println("en bas dun mur ou d'un rocher, rockford ne peut pas monter!");
+    		if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Wall ){this.setY((this.getY()));	
+    		System.out.println("en bas d'un mur, rockford ne peut pas monter!");
+    		}
+    		else if ( this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Boulder ){this.setY((this.getY()));	
+    		this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), this.getX(), this.getY()-2);
+    		System.out.println("en bas d'un rocher, rockford ne peut pas monter!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Diamond ) {this.setY(this.getY()-1);
     		System.out.println("en bas d'un diamant, rockford peut monter!");
@@ -127,7 +131,7 @@ public class Actor extends Element implements IActor {
     		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Emptyspace ) {
     	this.setX(this.getX()-1);
     		}
-        this.setHasMoved();	this.getLevel().get
+        this.setHasMoved();
         }
     }
 
