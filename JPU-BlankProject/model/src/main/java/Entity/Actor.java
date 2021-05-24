@@ -127,8 +127,9 @@ public class Actor extends Element implements IActor {
     				System.out.println("rockford ne peut pas aller a gauche car il ya un objet apres ce rocher!");
     			}
     			else { //if there is an emptyspace after the boulder
+    				this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX()-1, this.getY());
     				this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), this.getX()-2, this.getY());
-    				this.setX((this.getX()));
+    				this.setX((this.getX()-1));
     				System.out.println("à droite d'un rocher, rockford ne peut pas aller à gauche en remplacant le rocher!");
     				}
     		}
@@ -184,19 +185,20 @@ public class Actor extends Element implements IActor {
     	    				System.out.println("rockford ne peut pas aller a gauche car il ya un objet apres ce rocher!");
     	    			}
     	    			else { //if there is an emptyspace after the boulder
-    	    				this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), this.getX()-2, this.getY());
-    	    				this.setX((this.getX()));
+    	    				this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX()+1, this.getY());
+    	    				this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), this.getX()+2, this.getY());
+    	    				this.setX((this.getX()+1)); 
     	    				System.out.println("à droite d'un rocher, rockford ne peut pas aller à gauche en remplacant le rocher!");
     	    				}
     	    		}
-    	    		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Diamond ) {this.setX(this.getX()-1);
+    	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Diamond ) {this.setX(this.getX()+1);
     	    		System.out.println("à droite d'un diamant, rockford peut aller à gauche!");
     	    		}
-    	    		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Ground ) {this.setX(this.getX()-1);
+    	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Ground ) {this.setX(this.getX()+1);
     	    		System.out.println("à droite d'un ground, rockford peut aller à gauche!");
     	    		}
-    	    		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Emptyspace ) {
-    	    		this.setX(this.getX()-1);
+    	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Emptyspace ) {
+    	    		this.setX(this.getX()+1);
     	    		}
     	        this.setHasMoved();
         }
