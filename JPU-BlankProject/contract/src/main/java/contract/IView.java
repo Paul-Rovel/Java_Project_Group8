@@ -20,4 +20,11 @@ public interface IView {
 	     * Follow Rockford.
 	     */
 	    void followRockford();
+	    
+	    /**
+	     * Refreshes and redraws elements on the board
+	     */
+	    void updateBoard();
+
+		void drawScore(String string);
 }

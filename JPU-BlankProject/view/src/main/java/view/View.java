@@ -66,12 +66,13 @@ public class View implements Runnable, KeyListener, IView {
      * @throws LineUnavailableException 
      * @throws UnsupportedAudioFileException 
      */
-    public View(final ILevel level, final IActor rockford) throws IOException {
+    public View(final ILevel level, final IActor rockford, final ArrayList<IActor> pawns) throws IOException {
     	super();
     	this.setView(levelView);
         this.setLevel(level);
         this.setRockford(rockford);
         this.getRockford().getSprite().loadImage();
+        this.setPawns(pawns);
         this.setCloseView(new Rectangle(0, this.getRockford().getY(), this.getLevel().getWidth(), levelView));
         SwingUtilities.invokeLater(this);
     }
@@ -314,6 +315,15 @@ public class View implements Runnable, KeyListener, IView {
 				boardFrame.addSquare(this.level.getOnTheLevelXY(x, y), x, y);
 			}
 		}
+	}
+	
+	/**
+	 * 
+	 * @param newPawns
+	 *            The pawn list.
+	 */
+	protected void setPawns(final ArrayList<IActor> newPawns) {
+		this.pawns = newPawns;
 	}
 	
 	/**

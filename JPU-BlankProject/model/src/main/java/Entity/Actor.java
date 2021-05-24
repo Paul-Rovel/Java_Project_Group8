@@ -8,7 +8,7 @@ import contract.IActor;
 import contract.ILevel;
 import contract.Permeability;
 import contract.Sprite;
-import Entity.ObjectFactory;
+
 
 /**
  * <h1>The Mobile Class.</h1>
@@ -95,6 +95,7 @@ public class Actor extends Element implements IActor {
     		System.out.println("en bas d'un rocher, rockford ne peut pas monter!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Diamond ) {this.setY(this.getY()-1);
+    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
     		System.out.println("en bas d'un diamant, rockford peut monter!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Ground ) {this.setY(this.getY()-1);
@@ -134,9 +135,11 @@ public class Actor extends Element implements IActor {
     				}
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Diamond ) {this.setX(this.getX()-1);
+    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
     		System.out.println("à droite d'un diamant, rockford peut aller à gauche!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Ground ) {this.setX(this.getX()-1);
+    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
     		System.out.println("à droite d'un ground, rockford peut aller à gauche!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Emptyspace ) {
@@ -157,9 +160,11 @@ public class Actor extends Element implements IActor {
     		System.out.println("en haut dun mur ou d'un rocher, rockford ne peut pas descendre!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Diamond ) {this.setY(this.getY()+1);
+    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
     		System.out.println("en haut d'un diamant, rockford peut descendre!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Ground ) {this.setY(this.getY()+1);
+    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
     		System.out.println("en haut d'un ground, rockford peut descendre!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Emptyspace ) {
@@ -191,10 +196,14 @@ public class Actor extends Element implements IActor {
     	    				System.out.println("à droite d'un rocher, rockford ne peut pas aller à gauche en remplacant le rocher!");
     	    				}
     	    		}
-    	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Diamond ) {this.setX(this.getX()+1);
+    	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Diamond ) {
+    	    		this.setX(this.getX()+1);
+    	    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
     	    		System.out.println("à droite d'un diamant, rockford peut aller à gauche!");
     	    		}
-    	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Ground ) {this.setX(this.getX()+1);
+    	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Ground ) {
+    	    		this.setX(this.getX()+1);
+    	    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
     	    		System.out.println("à droite d'un ground, rockford peut aller à gauche!");
     	    		}
     	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Emptyspace ) {

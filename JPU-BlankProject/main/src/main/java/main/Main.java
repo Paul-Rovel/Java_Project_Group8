@@ -34,7 +34,7 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws IOException, InterruptedException {
         final IModel model = new Model("level1.txt", startX, startY);
-        final View view = new View(model.getLevel(), model.getRockford());
+        final View view = new View(model.getLevel(), model.getRockford(), model.getLevel().getPawns());
         final IController controller = new Controller(view, model);
         view.setOrderPerformer(controller.getOrderPeformer());
 

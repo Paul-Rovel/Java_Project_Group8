@@ -80,12 +80,13 @@ public final class Controller implements IController, IOrderPerformer {
                     break;
             }
             this.clearStackOrder();
+            this.getView().updateBoard();
             if (this.getModel().getRockford().isAlive()) {
              
             }
             this.getView().followRockford();
         }
-        this.getView().displayMessage("!!!!!!!!! CRUSED !!!!!!!!!.");
+        this.getView().displayMessage("!!!!!!!!! CRUSHED !!!!!!!!!.");
     }
 
     /*
@@ -182,6 +183,7 @@ public final class Controller implements IController, IOrderPerformer {
 		
 	}
 
+	
     
 	
    
