@@ -47,6 +47,9 @@ public class View implements Runnable, KeyListener, IView {
     /** The order performer. */
     private IOrderPerformer  orderPerformer;
 
+	/** The BoardFrame. */
+	private final BoardFrame boardFrame = new BoardFrame("Boulder Dash Group 8");
+
     /**
      * Instantiates a new insane vehicles View.
      *
@@ -81,7 +84,6 @@ public class View implements Runnable, KeyListener, IView {
      */
     @Override
     public final void run() {
-        final BoardFrame boardFrame = new BoardFrame("Boulder Dash Group");
         boardFrame.setDimension(new Dimension(this.getLevel().getWidth(), this.getLevel().getHeight()));
         boardFrame.setDisplayFrame(this.closeView);
         boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
@@ -296,4 +298,15 @@ public class View implements Runnable, KeyListener, IView {
         this.orderPerformer = orderPerformer;
     }
 	
+    /**
+	 * Update the board frame and redraws squares.
+	 */
+	public void updateBoard() {
+		for (int x = 0; x < this.getLevel().getWidth(); x++) {
+			for (int y = 0; y < this.getLevel().getHeight(); y++) {
+				boardFrame.addSquare(this.Level.getOnTheMapXY(x, y), x, y);
+			}
+		}
+	}
+    
 }
