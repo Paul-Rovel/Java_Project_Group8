@@ -99,6 +99,7 @@ public class Actor extends Element implements IActor {
     		System.out.println("en bas d'un diamant, rockford peut monter!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Ground ) {this.setY(this.getY()-1);
+    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
     		System.out.println("en bas d'un ground, rockford peut monter!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Emptyspace ) {
@@ -123,7 +124,7 @@ public class Actor extends Element implements IActor {
     		System.out.println("à droite d'un mur, rockford ne peut pas aller à gauche!");
     		}
     		else if ( this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Boulder ){	//check if there is a boulder
-    			if ( this.getLevel().getOnTheLevelXY(getX()-2, getY()) instanceof Boulder || this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Diamond || this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Ground ) { //if there is an object after the boulder no move
+    			if ( this.getLevel().getOnTheLevelXY(getX()-2, getY()) instanceof Boulder || this.getLevel().getOnTheLevelXY(getX()-2, getY()) instanceof Wall || this.getLevel().getOnTheLevelXY(getX()-2, getY()) instanceof Diamond || this.getLevel().getOnTheLevelXY(getX()-2, getY()) instanceof Ground ) { //if there is an object after the boulder no move
     				this.setX((this.getX())); 
     				System.out.println("rockford ne peut pas aller a gauche car il ya un objet apres ce rocher!");
     			}
@@ -185,7 +186,7 @@ public class Actor extends Element implements IActor {
     	    		System.out.println("à droite d'un mur, rockford ne peut pas aller à gauche!");
     	    		}
     	    		else if ( this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Boulder ){	//check if there is a boulder
-    	    			if ( this.getLevel().getOnTheLevelXY(getX()+2, getY()) instanceof Boulder || this.getLevel().getOnTheLevelXY(getX()+2, getY()) instanceof Diamond || this.getLevel().getOnTheLevelXY(getX()+2, getY()) instanceof Ground ) { //if there is an object after the boulder no move
+    	    			if ( this.getLevel().getOnTheLevelXY(getX()+2, getY()) instanceof Boulder || this.getLevel().getOnTheLevelXY(getX()+2, getY()) instanceof Wall || this.getLevel().getOnTheLevelXY(getX()+2, getY()) instanceof Diamond || this.getLevel().getOnTheLevelXY(getX()+2, getY()) instanceof Ground ) { //if there is an object after the boulder no move
     	    				this.setX((this.getX())); 
     	    				System.out.println("rockford ne peut pas aller a gauche car il ya un objet apres ce rocher!");
     	    			}
