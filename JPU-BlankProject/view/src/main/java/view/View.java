@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -35,6 +36,9 @@ public class View implements Runnable, KeyListener, IView {
     /** The Constant closeView. */
     private Rectangle closeView;
 
+    /** The list of pawns. */
+	private ArrayList<IActor> pawns;
+    
     /** The level. */
     private ILevel level;
 
@@ -51,17 +55,20 @@ public class View implements Runnable, KeyListener, IView {
 	private final BoardFrame boardFrame = new BoardFrame("Boulder Dash Group 8");
 
     /**
-     * Instantiates a new insane vehicles View.
+     * Instantiates a new boulder dash View.
      *
-     * @param road
-     *            the road
-     * @param myVehicle
-     *            the my vehicle
+     * @param level
+     *            the level
+     * @param rockford
+     *            the rockford
      * @throws IOException
      *             Signals that an I/O exception has occurred.
+     * @throws LineUnavailableException 
+     * @throws UnsupportedAudioFileException 
      */
     public View(final ILevel level, final IActor rockford) throws IOException {
-        this.setView(levelView);
+    	super();
+    	this.setView(levelView);
         this.setLevel(level);
         this.setRockford(rockford);
         this.getRockford().getSprite().loadImage();
@@ -304,9 +311,16 @@ public class View implements Runnable, KeyListener, IView {
 	public void updateBoard() {
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
 			for (int y = 0; y < this.getLevel().getHeight(); y++) {
-				boardFrame.addSquare(this.Level.getOnTheMapXY(x, y), x, y);
+				boardFrame.addSquare(this.level.getOnTheLevelXY(x, y), x, y);
 			}
 		}
 	}
+	
+	/**
+	 * @param score score to set
+	 */
+	public void drawScore(String score) {
+        boardFrame.setScore(score);
+    }
     
 }
