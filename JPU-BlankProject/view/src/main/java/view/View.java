@@ -234,7 +234,7 @@ public class View implements Runnable, KeyListener, IView {
      *
      * @return the level
      */
-    private ILevel getLevel() {
+    public ILevel getLevel() {
         return this.level;
     }
 
@@ -360,4 +360,6 @@ public class View implements Runnable, KeyListener, IView {
         boardFrame.setScore(score);
     }
     
+	
+	
 }

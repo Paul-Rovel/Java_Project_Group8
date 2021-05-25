@@ -56,7 +56,7 @@ public final class Controller implements IController, IOrderPerformer {
      * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#play()
      */
     @Override
-    public final void play() throws InterruptedException {
+    public final void play() throws InterruptedException, Exception {
         while (this.getModel().getRockford().isAlive()) {
             Thread.sleep(speed);
             switch (this.getStackOrder()) {
@@ -75,6 +75,9 @@ public final class Controller implements IController, IOrderPerformer {
                 case NOP:
                 	 this.getModel().getRockford().doNothing();
                      break;
+                case MAP1:
+               	 this.getModel().getRockford().doNothing();
+                    break; 
                 default:
                     this.getModel().getRockford().doNothing();
                     break;

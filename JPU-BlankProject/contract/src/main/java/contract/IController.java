@@ -18,8 +18,9 @@ public interface IController {
      *
      * @throws InterruptedException
      *             the interrupted exception
+	 * @throws Exception 
      */
-    void play() throws InterruptedException;
+    void play() throws InterruptedException, Exception;
 
     /**
      * Gets the order peformer.

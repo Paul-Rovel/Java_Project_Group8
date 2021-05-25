@@ -1,5 +1,7 @@
 package contract;
 
+import java.io.IOException;
+
 /**
  * The Interface IView.
  *
@@ -27,4 +29,6 @@ public interface IView {
 	    void updateBoard();
 
 		void drawScore(String string);
+		
+		
 }

@@ -96,8 +96,6 @@ public interface ILevel {
      */
     Observable getObservable();
     
-    /**do that the boulder and the diamond fall 
-     * @throws IOException */
-    public void rockfall() throws IOException;
+    
 	
 }

@@ -26,12 +26,9 @@ public abstract class Main {
      *
      * @param args
      *            the arguments
-     * @throws IOException
-     *             Signals that an I/O exception has occurred.
-     * @throws InterruptedException
-     *             the interrupted exception
+     * @throws Exception 
      */
-    public static void main(final String[] args) throws IOException, InterruptedException {
+    public static void main(final String[] args) throws Exception {
  Object[] levelchoice = {1, 2, 3, 4, 5};
 		
 		int level = (int)JOptionPane.showInputDialog(null, "Choose your level", "BoulderDash", JOptionPane.QUESTION_MESSAGE, null, levelchoice, levelchoice[0]);
