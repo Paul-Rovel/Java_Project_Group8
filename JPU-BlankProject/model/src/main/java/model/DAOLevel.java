@@ -12,7 +12,7 @@ import entity.HelloWorld;
  *
  * @author Paul-Kamga
  */
- class DAOElement extends DAOEntity<HelloWorld> {
+ class DAOLevel extends DAOEntity<HelloWorld> {
 
 	/**
 	 * Instantiates a new DAO hello world.
@@ -22,7 +22,7 @@ import entity.HelloWorld;
 	 * @throws SQLException
 	 *           the SQL exception
 	 */
-	public DAOElement(final Connection connection) throws SQLException {
+	public DAOLevel(final Connection connection) throws SQLException {
 		super(connection);
 	}
 

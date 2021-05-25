@@ -60,7 +60,8 @@ public final class Controller implements IController, IOrderPerformer {
         while (this.getModel().getRockford().isAlive()) {
            
             Thread.sleep(speed);
-            
+       	 this.getModel().getLevel().rockfall();
+         this.getView().updateBoard();
             switch (this.getStackOrder()) {
                 case RIGHT:
                     this.getModel().getRockford().moveRight();
@@ -78,13 +79,12 @@ public final class Controller implements IController, IOrderPerformer {
                 	 this.getModel().getRockford().doNothing();
                      break;
                 default:
-                    this.getModel().getRockford().doNothing();
                     break;
             }
             this.clearStackOrder();
             this.getView().updateBoard();
             if (this.getModel().getRockford().isAlive()) {
-            	 this.getModel().getLevel().rockfall();
+            
             }
             this.getView().followRockford();
         

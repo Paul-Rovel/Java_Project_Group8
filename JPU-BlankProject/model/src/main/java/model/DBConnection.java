@@ -7,9 +7,9 @@ import java.sql.SQLException;
 /**
  * The Class DBConnection.
  *
- * @author Paul-Kamga
+ * @author Jean-Aymeric Diet
  */
-public final class DBConnection {
+final class DBConnection {
 	/** The instance. */
 	private static DBConnection	INSTANCE	= null;
 
@@ -19,7 +19,7 @@ public final class DBConnection {
 	/**
 	 * Instantiates a new DB connection.
 	 */
-	public DBConnection() {
+	private DBConnection() {
 		this.open();
 	}
 

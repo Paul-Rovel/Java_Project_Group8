@@ -68,7 +68,21 @@ public class Level extends Observable implements ILevel {
         line = buffer.readLine();
         while (line != null) {
             for (int x = 0; x < line.toCharArray().length; x++) {
-                this.setOnTheLevelXY(ObjectFactory.getFromFileSymbol(line.toCharArray()[x]), x, y);
+            	if (line.toCharArray()[x] == '0') {
+                this.setOnTheLevelXY(ObjectFactory.createBoulder(), x, y);
+                }
+            	if (line.toCharArray()[x] == '1') {
+                    this.setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y);
+                    }
+            	if (line.toCharArray()[x] == '2') {
+                    this.setOnTheLevelXY(ObjectFactory.createDiamond(), x, y);
+                    }
+            	if (line.toCharArray()[x] == '3') {
+                    this.setOnTheLevelXY(ObjectFactory.createGround(), x, y);
+                    }
+            	if (line.toCharArray()[x] == '4') {
+                    this.setOnTheLevelXY(ObjectFactory.createWall(), x, y);
+                    }
             }
             line = buffer.readLine();
             y++;
@@ -220,10 +234,10 @@ public class Level extends Observable implements ILevel {
     			
     			if(getOnTheLevelXY(x, y) instanceof Boulder) {//for each case in map[][] check if it is a Boulder 
     				
-                    if(x==getRockford().getX() && y+1==getRockford().getY()){ 
-                        }
+                  //  if(x==getRockford().getX() && y+1==getRockford().getY()){ 
+                    //    }
 
-                    else if(getOnTheLevelXY(x,y+1) instanceof Emptyspace ) {// if the block under the Boulder is a Emptyspace
+                     if(getOnTheLevelXY(x,y+1) instanceof Emptyspace ) {// if the block under the Boulder is a Emptyspace
     					setOnTheLevelXY(ObjectFactory.createBoulder(), x, y+1); // create a Boulder under the Boulder
     					setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
     					
@@ -254,9 +268,9 @@ public class Level extends Observable implements ILevel {
     				
     			}
     			if(getOnTheLevelXY(x,y) instanceof Diamond) {//for each case in map[][] check if it is a diamond
-    				 if(x==this.getRockford().getX() && y==this.getRockford().getY()){ 
-                        }
-    				 else if(getOnTheLevelXY(x,y+1) instanceof Emptyspace) {// if the element under the diamond is an Emptyspace
+    		//		 if(x==this.getRockford().getX() && y==this.getRockford().getY()){ 
+              //          }
+    				  if(getOnTheLevelXY(x,y+1) instanceof Emptyspace) {// if the element under the diamond is an Emptyspace
     					setOnTheLevelXY(ObjectFactory.createDiamond(), x, y+1); // create a diamond down the diamond
     					setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an emptyspace on the old position of the diamond
     					

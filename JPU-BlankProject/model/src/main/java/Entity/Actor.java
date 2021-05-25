@@ -341,7 +341,5 @@ public class Actor extends Element implements IActor {
         return this.board;
     }
    
-public void rockfall() throws IOException {	
-}
     
 }
