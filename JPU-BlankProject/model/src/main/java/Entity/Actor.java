@@ -63,7 +63,7 @@ public class Actor extends Element implements IActor {
      * @param permeability
      *            the permeability
      */
-    Actor(final int x, final int y, final Sprite sprite, final ILevel level, final Permeability permeability) {
+    Actor( int x,  int y,  Sprite sprite, final ILevel level, final Permeability permeability) {
         this(sprite, level, permeability);
         this.setX(x);
         this.setY(y);
@@ -75,12 +75,6 @@ public class Actor extends Element implements IActor {
      */
     @Override
     public void moveUp() { 
-    	try {
-			rockfall();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     	if (this.getY() > 0) {
     		if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Wall ){this.setY((this.getY()));	
     		System.out.println("en bas d'un mur, rockford ne peut pas monter!");

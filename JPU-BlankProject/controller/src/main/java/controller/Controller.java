@@ -58,8 +58,9 @@ public final class Controller implements IController, IOrderPerformer {
     @Override
     public final void play() throws InterruptedException, Exception {
         while (this.getModel().getRockford().isAlive()) {
-        	
+           
             Thread.sleep(speed);
+            
             switch (this.getStackOrder()) {
                 case RIGHT:
                     this.getModel().getRockford().moveRight();
@@ -76,9 +77,6 @@ public final class Controller implements IController, IOrderPerformer {
                 case NOP:
                 	 this.getModel().getRockford().doNothing();
                      break;
-                case MAP1:
-               	 this.getModel().getRockford().doNothing();
-                    break; 
                 default:
                     this.getModel().getRockford().doNothing();
                     break;
@@ -86,10 +84,10 @@ public final class Controller implements IController, IOrderPerformer {
             this.clearStackOrder();
             this.getView().updateBoard();
             if (this.getModel().getRockford().isAlive()) {
-             
+            	 this.getModel().getLevel().rockfall();
             }
             this.getView().followRockford();
-            this.getModel().getLevel().rockfall();
+        
         }
         this.getView().displayMessage("!!!!!!!!! CRUSHED !!!!!!!!!.");
     }

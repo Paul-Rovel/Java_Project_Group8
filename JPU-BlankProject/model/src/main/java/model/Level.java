@@ -11,9 +11,11 @@ import java.util.Observable;
 import contract.IActor;
 import contract.IElement;
 import contract.ILevel;
+import Entity.Actor;
 import Entity.Boulder;
 import Entity.Diamond;
 import Entity.Emptyspace;
+import Entity.Ground;
 import Entity.ObjectFactory;
 import Entity.Rockford;
 import Entity.Wall;
@@ -117,7 +119,7 @@ public class Level extends Observable implements ILevel {
      * @see fr.exia.insanevehicles.model.IRoad#getOnTheRoadXY(int, int)
      */
     @Override
-    public final IElement getOnTheLevelXY(final int x, final int y) {
+    public final IElement getOnTheLevelXY( int x,  int y) {
         return this.onTheLevel[x][y];
     }
 
@@ -132,7 +134,7 @@ public class Level extends Observable implements ILevel {
      *            the y
      * @return 
      */
-    public void setOnTheLevelXY(final IElement element, final int x, final int y) {
+    public void setOnTheLevelXY(final IElement element,  int x,  int y) {
          this.onTheLevel[x][y] = element;
     }
 
@@ -210,17 +212,14 @@ public class Level extends Observable implements ILevel {
 	}
 
 	@Override
-	public void rockfall() throws IOException {
-
-    	for(int x = 1; x < 10; x++){
+public void rockfall() throws IOException {	
+    	
+    	for(int x = 1; x < 16; x++){
     		
-    		for(int y = 1; y <10 ; y++) {
+    		for(int y = 1; y <17 ; y++) {
     			
-    			if(getOnTheLevelXY(x, y) instanceof Boulder) {//for each case in map[][] check if it is a Boulder 
-    				if(getOnTheLevelXY(x,y+1) instanceof Rockford ) { // if the rockford is under the boulder
-    					setOnTheLevelXY(ObjectFactory.createBoulder(), x, y); // create a Boulder right-under  the Boulder
-    				}
-    				else if(getOnTheLevelXY(x,y+1) instanceof Emptyspace ) {// if the block under the Boulder is a Emptyspace
+    			if(getOnTheLevelXY(x, y) instanceof Boulder) {//for each case in the map check if it is a Boulder 
+    				if(getOnTheLevelXY(x,y+1) instanceof Emptyspace ) {// if the block under the Boulder is a Emptyspace
     					setOnTheLevelXY(ObjectFactory.createBoulder(), x, y+1); // create a Boulder under the Boulder
     					setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
     					
@@ -229,22 +228,20 @@ public class Level extends Observable implements ILevel {
 		    				if(getOnTheLevelXY(x-1,y) instanceof Emptyspace) { // left side of Boulder empty
 		    					if(getOnTheLevelXY(x-1,y+1) instanceof Emptyspace) {// check if left-under side of Boulder is Empty
 		    						setOnTheLevelXY(ObjectFactory.createBoulder(), x-1, y+1); // create a Boulder left-under  the Boulder
-		    						setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
+		        					setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
 
 		    					}
 		    				}
 			    			else if(getOnTheLevelXY(x+1,y) instanceof Boulder) { // if the element at right of the boulder is a boulder
 			    					if(getOnTheLevelXY(x+1,y+1) instanceof Emptyspace) {// check if right-down side  is free
 			    						setOnTheLevelXY(ObjectFactory.createBoulder(), x+1, y+1); // create a Boulder right-under  the Boulder
-			    						setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
+			        					setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
 		
 			    					}	
 			    				} else {
 			    					setOnTheLevelXY(ObjectFactory.createBoulder(), x, y);
 			    			}
     				}
-    				
-    				
     			}
     			if(getOnTheLevelXY(x,y) instanceof Diamond) {//for each case in map[][] check if it is a diamond
     				if(getOnTheLevelXY(x,y+1) instanceof Emptyspace) {// if the element under the diamond is an Emptyspace
@@ -259,14 +256,8 @@ public class Level extends Observable implements ILevel {
     	        
     		}
     		
-    	
+    	}
     
-    }
-		
-	}
-
-	
-
-    
+    }    
 }
 
