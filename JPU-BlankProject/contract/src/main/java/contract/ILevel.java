@@ -96,6 +96,6 @@ public interface ILevel {
      */
     Observable getObservable();
     
-    
+    public void rockfall() throws IOException;
 	
 }
