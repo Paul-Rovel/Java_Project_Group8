@@ -23,7 +23,7 @@ import model.DBConnection;
 public final class Controller implements IController, IOrderPerformer {
 
     /** The Constant speed. */
-    private static final int     speed = 100;
+    private static final int     speed = 150;
 
     /** The view. */
     private IView  view;

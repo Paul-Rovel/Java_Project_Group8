@@ -212,7 +212,7 @@ public void rockfall() throws IOException {
     	
     	for(int x = 1; x < 16; x++){
     		
-    		for(int y = 1; y < 17 ; y++) {
+    		for(int y = 1; y <17 ; y++) {
     			
     			if(onTheLevel[x][y] instanceof Boulder) {//for each case in map[][] check if it is a Boulder 
     				if(onTheLevel[x][y+1] instanceof Emptyspace ) {// if the block under the Boulder is a Emptyspace

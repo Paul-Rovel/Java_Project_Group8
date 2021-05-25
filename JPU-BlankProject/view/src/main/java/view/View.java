@@ -337,7 +337,9 @@ public class View implements Runnable, KeyListener, IView {
 	public void updateBoard() {
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
 			for (int y = 0; y < this.getLevel().getHeight(); y++) {
+				
 				boardFrame.addSquare(this.level.getOnTheLevelXY(x, y), x, y);
+				
 			}
 		}
 	}
