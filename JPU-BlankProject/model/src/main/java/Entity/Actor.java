@@ -27,7 +27,7 @@ public class Actor extends Element implements IActor {
     /** The alive. */
     private Boolean alive = true;
 
-    /** The road. */
+    /** The level. */
     private ILevel   level;
 
     /** The board. */
@@ -38,7 +38,7 @@ public class Actor extends Element implements IActor {
      *
      * @param sprite
      *            the sprite
-     * @param road
+     * @param level
      *            the level
      * @param permeability
      *            the permeability
@@ -50,7 +50,7 @@ public class Actor extends Element implements IActor {
     }
 
     /**
-     * Instantiates a new mobile.
+     * Instantiates a new Rockford.
      *
      * @param x
      *            the x
@@ -58,12 +58,12 @@ public class Actor extends Element implements IActor {
      *            the y
      * @param sprite
      *            the sprite
-     * @param road
-     *            the road
+     * @param level
+     *            the level
      * @param permeability
      *            the permeability
      */
-    Actor( int x,  int y,  Sprite sprite, final ILevel level, final Permeability permeability) {
+    Actor(final int x, final int y,  Sprite sprite, final ILevel level, final Permeability permeability) {
         this(sprite, level, permeability);
         this.setX(x);
         this.setY(y);
@@ -254,8 +254,8 @@ public class Actor extends Element implements IActor {
      * Sets the y.
      *
      * @param y
-     *            the new y, as the road is an infinite loop, there's a modulo
-     *            based on the road height.
+     *            the new y, as the level is an infinite loop, there's a modulo
+     *            based on the level height.
      */
     public final void setY(final int y) {
         this.getPosition().y = (y + this.getLevel().getHeight()) % this.getLevel().getHeight();
@@ -265,19 +265,19 @@ public class Actor extends Element implements IActor {
     }
 
     /**
-     * Gets the road.
+     * Gets the level.
      *
-     * @return the road
+     * @return the level
      */
     public ILevel getLevel() {
         return this.level;
     }
 
     /**
-     * Sets the road.
+     * Sets the level.
      *
-     * @param road
-     *            the new road
+     * @param level
+     *            the new level
      */
     private void setLevel(final ILevel level) {
         this.level = level;
