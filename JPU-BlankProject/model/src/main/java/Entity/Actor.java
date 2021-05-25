@@ -73,18 +73,6 @@ public class Actor extends Element implements IActor {
      * (non-Javadoc)
      * @see model.element.Actor.IActor#moveUp()
      */
-    
-   /* public void moveUp() { 
-    	if (this.getY() > 0) {
-    		if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Wall) {System.out.println("00000");
-        this.setY(this.getY() - 1);
-        this.setHasMoved();
-    		}
-    		getOnTheLevelXY(getX(), getY()-1);
-    		
-    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getY(), this.getX());
-        }
-    }*/
     @Override
     public void moveUp() { 
     	if (this.getY() > 0) {
@@ -118,8 +106,6 @@ public class Actor extends Element implements IActor {
     @Override
     public void moveLeft() {
     	if (this.getX() > 0) {
-        /*this.setX(this.getX() - 1);
-        this.setHasMoved();*/
     		if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Wall ){this.setY((this.getY()));	//if there is a wall no move
     		System.out.println("à droite d'un mur, rockford ne peut pas aller à gauche!");
     		}
@@ -156,7 +142,7 @@ public class Actor extends Element implements IActor {
      */
     @Override
     public void moveDown() {
-    	if (this.getY() < 9) {
+    	
     		if (this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Wall || this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Boulder ){this.setY((this.getY()));	
     		System.out.println("en haut dun mur ou d'un rocher, rockford ne peut pas descendre!");
     		}
@@ -172,7 +158,7 @@ public class Actor extends Element implements IActor {
     	this.setY(this.getY()+1);
     		}
         this.setHasMoved();	
-        }
+        
     }
 
     /*
@@ -230,6 +216,7 @@ public class Actor extends Element implements IActor {
         this.getLevel().setActorHasChanged();
     }
 
+    
     /*
      * (non-Javadoc)
      * @see model.element.Actor.IActor#getX()
@@ -313,6 +300,18 @@ public class Actor extends Element implements IActor {
         this.setHasMoved();
     }
 
+    /**
+     * Fall.
+     */
+    public void fall() {
+    	if ( this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Boulder ){
+    		if ( this.getLevel().getOnTheLevelXY(getX(), getY()) instanceof Rockford ){}
+    		else
+    			this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY()-1);
+    			this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), this.getX(), this.getY());
+    		}
+    }
+    
     /*
      * (non-Javadoc)
      * @see fr.exia.insanevehicles.model.element.mobile.IMobile#isCrashed()

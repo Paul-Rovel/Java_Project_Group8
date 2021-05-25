@@ -1,5 +1,6 @@
 package contract;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -12,7 +13,6 @@ import java.util.Observable;
 
 public interface ILevel {
 	
-
     /**
      * Gets the width.
      *
@@ -36,6 +36,18 @@ public interface ILevel {
      *            the y
      * @return the on the level XY
      */
+
+	/**
+     * @return int
+     */
+    int getScore();
+
+    /**
+     * @param score
+     */
+    void setScore(int score);
+
+
     public IElement getOnTheLevelXY(int x, int y);
     
     /**
@@ -50,6 +62,23 @@ public interface ILevel {
      */
     void setOnTheLevelXY(final IElement element, final int x, final int y);
 
+    /** Increments the diamond count */
+	public void addDiamondCount();
+
+	/**
+	 * Get DiamondCount
+	 * 
+	 * @return DiamondCount, number of diamond in the map.
+	 */
+	public int getDiamondCount();
+
+	void getAddScore();
+	
+	/** @return The rockford */
+	public IActor getRockford();
+	
+	int getNbDiamond();
+	
     /**
      * Sets that the Actor has changed.
      */
@@ -66,5 +95,9 @@ public interface ILevel {
      * @return the observable
      */
     Observable getObservable();
+    
+    /**do that the boulder and the diamond fall 
+     * @throws IOException */
+    public void rockfall() throws IOException;
 	
 }

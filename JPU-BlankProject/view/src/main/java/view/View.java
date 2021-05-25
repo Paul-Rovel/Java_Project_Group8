@@ -105,7 +105,6 @@ public class View implements Runnable, KeyListener, IView {
             }
         }
         boardFrame.addPawn(this.getRockford());
-
         this.getLevel().getObservable().addObserver(boardFrame.getObserver());
         this.followRockford();
 
@@ -143,7 +142,7 @@ public class View implements Runnable, KeyListener, IView {
     private static ControllerOrder keyCodeToUserOrder(final int keyCode) {
         ControllerOrder userOrder;
         switch (keyCode) {
-            case KeyEvent.VK_RIGHT:
+        	case KeyEvent.VK_RIGHT:
                 userOrder = ControllerOrder.RIGHT;
                 break;
             case KeyEvent.VK_LEFT:
@@ -155,6 +154,22 @@ public class View implements Runnable, KeyListener, IView {
             case KeyEvent.VK_DOWN:
                 userOrder = ControllerOrder.DOWN;
                 break;
+            case KeyEvent.VK_1:
+                userOrder = ControllerOrder.MAP1;
+                break;
+            case KeyEvent.VK_2:
+                    userOrder = ControllerOrder.MAP2;
+                    break;
+            case KeyEvent.VK_3:
+                    userOrder = ControllerOrder.MAP3;
+                    break;
+            case KeyEvent.VK_4:
+                    userOrder = ControllerOrder.MAP4;
+                    break;
+            case KeyEvent.VK_5:
+                    userOrder = ControllerOrder.MAP5;
+                    break;
+            
             default:
                 userOrder = ControllerOrder.NOP;
                 break;
@@ -199,10 +214,20 @@ public class View implements Runnable, KeyListener, IView {
      */
     @Override
     public final void followRockford() {
-        //this.getCloseView().y = this.getRockford().getY() - 1;
-        //this.getCloseView().x = this.getRockford().getX() - 1;
-        
-    }
+			this.getCloseView().y = (int) (this.rockford.getY() - (this.getCloseView().getHeight() / 2));
+			this.getCloseView().x = (int) (this.rockford.getX() - (this.getCloseView().getWidth() / 2));
+
+			if (this.rockford.getY() < this.getCloseView().getHeight() / 2) {
+				this.getCloseView().y = 0;
+			} else if (this.rockford.getY() > (this.level.getHeight() - (this.getCloseView().getHeight() / 2))) {
+				this.getCloseView().y = (int) (this.level.getHeight() - this.getCloseView().getHeight());
+			}
+			if (this.rockford.getX() < this.getCloseView().getWidth() / 2) {
+				this.getCloseView().x = 0;
+			} else if (this.rockford.getX() > (this.level.getWidth() - (this.getCloseView().getWidth() / 2))) {
+				this.getCloseView().x = (int) (this.level.getWidth() - this.getCloseView().getWidth());
+			}
+		}
 
     /**
      * Gets the level.

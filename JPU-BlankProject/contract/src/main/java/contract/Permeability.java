@@ -12,6 +12,10 @@ public enum Permeability {
     /** The blocking. */
     BLOCKING,
     /** The penetrable. */
-    PENETRABLE;
+    PENETRABLE,
+	  /** The fall. */
+    FALL,
+    /** The not fall. */
+    NFALL,
 	
 }

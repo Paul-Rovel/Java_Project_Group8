@@ -18,10 +18,7 @@ public class Object extends Element {
         super(sprite, permeability);
     }
 
-    public boolean fall(boolean fall) {
-		if (fall = true) {getLevel().getOnTheLevelXY(setX(getX()), setY(getY()+1));}
-    	return fall;
     	
     }
  
-}
+

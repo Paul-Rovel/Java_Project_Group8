@@ -1,12 +1,16 @@
 package main;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
+import controller.Controller;
 import contract.IController;
 import contract.IModel;
-import controller.Controller;
 import model.Model;
 import view.View;
+
 
 /**
  * <h1>The Main Class.</h1>
@@ -16,11 +20,6 @@ import view.View;
  */
 public abstract class Main {
 
-    /** The Constant startX. */
-    private static final int startX = 5;
-
-    /** The Constant startY. */
-    private static final int startY = 0;
 
     /**
      * The main method.
@@ -33,7 +32,13 @@ public abstract class Main {
      *             the interrupted exception
      */
     public static void main(final String[] args) throws IOException, InterruptedException {
-        final IModel model = new Model("level1.txt", startX, startY);
+ Object[] levelchoice = {1, 2, 3, 4, 5};
+		
+		int level = (int)JOptionPane.showInputDialog(null, "Choose your level", "BoulderDash", JOptionPane.QUESTION_MESSAGE, null, levelchoice, levelchoice[0]);
+	
+		JOptionPane.showMessageDialog(null, "Vous avez choisi le niveau" + level, null, JOptionPane.INFORMATION_MESSAGE);
+    	
+        final IModel model = new Model("map"+level+".txt");
         final View view = new View(model.getLevel(), model.getRockford(), model.getLevel().getPawns());
         final IController controller = new Controller(view, model);
         view.setOrderPerformer(controller.getOrderPeformer());

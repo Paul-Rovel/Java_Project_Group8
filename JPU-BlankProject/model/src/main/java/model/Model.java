@@ -17,6 +17,11 @@ import Entity.Rockford;
 public final class Model extends Observable implements IModel {
 
 
+    /** The Constant startX. */
+    private static final int startX = 1;
+
+    /** The Constant startY. */
+    private static final int startY = 1;
     /** The road. */
     private ILevel   level;
 
@@ -35,10 +40,10 @@ public final class Model extends Observable implements IModel {
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
-    public Model(final String fileName, final int rockfordStartX, final int rockfordStartY)
+    public Model(final String fileName)
             throws IOException {
         this.setLevel(new Level(fileName));
-        this.setRockford(new Rockford(rockfordStartX, rockfordStartY, this.getLevel()));
+        this.setRockford(new Rockford(startX, startY, this.getLevel()));
     }
 
     /* (non-Javadoc)
