@@ -29,7 +29,7 @@ public abstract class Main {
      * @throws Exception 
      */
     public static void main(final String[] args) throws Exception {
- Object[] levelchoice = {1, 2, 3, 4, 5};
+ Object[] levelchoice = {1, 2, 3, 4, 5, 6};
 		
 		int level = (int)JOptionPane.showInputDialog(null, "Choose your level", "BoulderDash", JOptionPane.QUESTION_MESSAGE, null, levelchoice, levelchoice[0]);
 	

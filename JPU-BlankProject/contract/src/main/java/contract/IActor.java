@@ -1,6 +1,8 @@
 package contract;
 
 import java.awt.Point;
+import java.io.IOException;
+
 import fr.exia.showboard.IPawn;
 
 
@@ -74,6 +76,7 @@ public interface IActor extends IPawn, IElement {
      * @return the boolean
      */
     Boolean isCrushed();
+  
 
     
     /*
@@ -83,5 +86,6 @@ public interface IActor extends IPawn, IElement {
     @Override
     Point getPosition();
     
+  
     
 }

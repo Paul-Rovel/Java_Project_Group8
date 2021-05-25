@@ -58,6 +58,7 @@ public final class Controller implements IController, IOrderPerformer {
     @Override
     public final void play() throws InterruptedException, Exception {
         while (this.getModel().getRockford().isAlive()) {
+        	
             Thread.sleep(speed);
             switch (this.getStackOrder()) {
                 case RIGHT:
@@ -88,6 +89,7 @@ public final class Controller implements IController, IOrderPerformer {
              
             }
             this.getView().followRockford();
+            this.getModel().getLevel().rockfall();
         }
         this.getView().displayMessage("!!!!!!!!! CRUSHED !!!!!!!!!.");
     }

@@ -15,6 +15,7 @@ import Entity.Boulder;
 import Entity.Diamond;
 import Entity.Emptyspace;
 import Entity.ObjectFactory;
+import Entity.Rockford;
 import Entity.Wall;
 
 public class Level extends Observable implements ILevel {
@@ -206,6 +207,62 @@ public class Level extends Observable implements ILevel {
 	public int getNbDiamond() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void rockfall() throws IOException {
+
+    	for(int x = 1; x < 10; x++){
+    		
+    		for(int y = 1; y <10 ; y++) {
+    			
+    			if(getOnTheLevelXY(x, y) instanceof Boulder) {//for each case in map[][] check if it is a Boulder 
+    				if(getOnTheLevelXY(x,y+1) instanceof Rockford ) { // if the rockford is under the boulder
+    					setOnTheLevelXY(ObjectFactory.createBoulder(), x, y); // create a Boulder right-under  the Boulder
+    				}
+    				else if(getOnTheLevelXY(x,y+1) instanceof Emptyspace ) {// if the block under the Boulder is a Emptyspace
+    					setOnTheLevelXY(ObjectFactory.createBoulder(), x, y+1); // create a Boulder under the Boulder
+    					setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
+    					
+    				}
+    				else if(getOnTheLevelXY(x,y+1) instanceof Boulder) {// if the element under the Boulder is a Boulder
+		    				if(getOnTheLevelXY(x-1,y) instanceof Emptyspace) { // left side of Boulder empty
+		    					if(getOnTheLevelXY(x-1,y+1) instanceof Emptyspace) {// check if left-under side of Boulder is Empty
+		    						setOnTheLevelXY(ObjectFactory.createBoulder(), x-1, y+1); // create a Boulder left-under  the Boulder
+		    						setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
+
+		    					}
+		    				}
+			    			else if(getOnTheLevelXY(x+1,y) instanceof Boulder) { // if the element at right of the boulder is a boulder
+			    					if(getOnTheLevelXY(x+1,y+1) instanceof Emptyspace) {// check if right-down side  is free
+			    						setOnTheLevelXY(ObjectFactory.createBoulder(), x+1, y+1); // create a Boulder right-under  the Boulder
+			    						setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
+		
+			    					}	
+			    				} else {
+			    					setOnTheLevelXY(ObjectFactory.createBoulder(), x, y);
+			    			}
+    				}
+    				
+    				
+    			}
+    			if(getOnTheLevelXY(x,y) instanceof Diamond) {//for each case in map[][] check if it is a diamond
+    				if(getOnTheLevelXY(x,y+1) instanceof Emptyspace) {// if the element under the diamond is an Emptyspace
+    					setOnTheLevelXY(ObjectFactory.createDiamond(), x, y+1); // create a diamond down the diamond
+    					setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an emptyspace on the old position of the diamond
+    					
+    				}
+    				}
+    			if(getOnTheLevelXY(x,y) instanceof Wall) {
+    				setOnTheLevelXY(ObjectFactory.createWall(), x, y);
+    			}
+    	        
+    		}
+    		
+    	
+    
+    }
+		
 	}
 
 	
