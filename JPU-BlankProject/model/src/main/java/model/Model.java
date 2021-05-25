@@ -9,6 +9,7 @@ import contract.IModel;
 import Entity.Rockford;
 
 
+
 /**
  * <h1>The Class Model.</h1>
  *
@@ -81,6 +82,8 @@ public final class Model extends Observable implements IModel {
     private void setRockford(final IActor rockford) {
         this.rockford = rockford;
     }	
+    
 	
+
 	
 }

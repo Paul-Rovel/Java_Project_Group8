@@ -75,6 +75,12 @@ public class Actor extends Element implements IActor {
      */
     @Override
     public void moveUp() { 
+    	try {
+			rockfall();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	if (this.getY() > 0) {
     		if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Wall ){this.setY((this.getY()));	
     		System.out.println("en bas d'un mur, rockford ne peut pas monter!");
@@ -105,6 +111,12 @@ public class Actor extends Element implements IActor {
      */
     @Override
     public void moveLeft() {
+    	try {
+			rockfall();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	if (this.getX() > 0) {
     		if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Wall ){this.setY((this.getY()));	//if there is a wall no move
     		System.out.println("à droite d'un mur, rockford ne peut pas aller à gauche!");
@@ -134,6 +146,7 @@ public class Actor extends Element implements IActor {
     		}
         this.setHasMoved();
         }
+    	
     }
 
     /*
@@ -142,7 +155,12 @@ public class Actor extends Element implements IActor {
      */
     @Override
     public void moveDown() {
-    	
+    	try {
+			rockfall();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     		if (this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Wall || this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Boulder ){this.setY((this.getY()));	
     		System.out.println("en haut dun mur ou d'un rocher, rockford ne peut pas descendre!");
     		}
@@ -167,6 +185,12 @@ public class Actor extends Element implements IActor {
      */
     @Override
     public void moveRight() {
+    	try {
+			rockfall();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     		if (this.getX() < this.getLevel().getWidth()-1) {
     	    		if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Wall ){this.setY((this.getY()));	//if there is a wall no move
     	    		System.out.println("à droite d'un mur, rockford ne peut pas aller à gauche!");
@@ -353,14 +377,52 @@ public class Actor extends Element implements IActor {
         return this.board;
     }
    
-    public void digDirt() {
-		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getY(), this.getX());
-		try {
-			this.getLevel().getOnTheLevelXY(getX(), getY()).getSprite().loadImage();
+public void rockfall() throws IOException {	
+    	
+    	for(int x = 1; x < 16; x++){
+    		
+    		for(int y = 1; y <17 ; y++) {
+    			
+    			if(this.getLevel().getOnTheLevelXY(x, y) instanceof Boulder) {//for each case in map[][] check if it is a Boulder 
+    				if(this.getLevel().getOnTheLevelXY(x,y+1) instanceof Emptyspace ) {// if the block under the Boulder is a Emptyspace
+    					this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), x, y+1); // create a Boulder under the Boulder
+    					this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
+    					
+    				}
+    				else if(this.getLevel().getOnTheLevelXY(x,y+1) instanceof Boulder) {// if the element under the Boulder is a Boulder
+		    				if(this.getLevel().getOnTheLevelXY(x-1,y) instanceof Emptyspace) { // left side of Boulder empty
+		    					if(this.getLevel().getOnTheLevelXY(x-1,y+1) instanceof Emptyspace) {// check if left-under side of Boulder is Empty
+		    						this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), x-1, y+1); // create a Boulder left-under  the Boulder
+		    						this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+		    					}
+		    				}
+			    			else if(this.getLevel().getOnTheLevelXY(x+1,y) instanceof Boulder) { // if the element at right of the boulder is a boulder
+			    					if(this.getLevel().getOnTheLevelXY(x+1,y+1) instanceof Emptyspace) {// check if right-down side  is free
+			    						this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), x+1, y+1); // create a Boulder right-under  the Boulder
+			    						this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
+		
+			    					}	
+			    				} else {
+			    					this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), x, y);
+			    			}
+    				}
+    			}
+    			if(this.getLevel().getOnTheLevelXY(x,y) instanceof Diamond) {//for each case in map[][] check if it is a diamond
+    				if(this.getLevel().getOnTheLevelXY(x,y+1) instanceof Emptyspace) {// if the element under the diamond is an Emptyspace
+    					this.getLevel().setOnTheLevelXY(ObjectFactory.createDiamond(), x, y+1); // create a diamond down the diamond
+    					this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an emptyspace on the old position of the diamond
+    					
+    				}
+    				}
+    			if(this.getLevel().getOnTheLevelXY(x,y) instanceof Wall) {
+    				this.getLevel().setOnTheLevelXY(ObjectFactory.createWall(), x, y);
+    			}
+    	        
+    		}
+    		
+    	}
+    
+    }
     
 }
