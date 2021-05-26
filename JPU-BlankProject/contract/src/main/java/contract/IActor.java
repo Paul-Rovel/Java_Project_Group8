@@ -1,8 +1,6 @@
 package contract;
 
 import java.awt.Point;
-import java.io.IOException;
-
 import fr.exia.showboard.IPawn;
 
 

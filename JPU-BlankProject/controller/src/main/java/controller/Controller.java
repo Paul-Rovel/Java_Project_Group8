@@ -2,14 +2,10 @@ package controller;
 
 import java.io.IOException;
 
-import javax.management.modelmbean.ModelMBean;
-
-import contract.IElement;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
 import contract.IOrderPerformer;
-import contract.ILevel;
 import contract.ControllerOrder;
 import model.DBConnection;
 
@@ -89,7 +85,7 @@ public final class Controller implements IController, IOrderPerformer {
             this.getView().followRockford();
         
         }
-        this.getView().displayMessage("!!!!!!!!! CRUSHED !!!!!!!!!.");
+        this.getView().displayMessage("!!!!!!!!! YOU DIED !!!!!!!!!.");
     }
 
     /*

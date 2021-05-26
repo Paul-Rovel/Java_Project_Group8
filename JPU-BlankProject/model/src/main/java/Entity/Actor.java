@@ -1,8 +1,6 @@
 package Entity;
 
 import java.awt.Point;
-import java.io.IOException;
-
 import fr.exia.showboard.IBoard;
 import contract.IActor;
 import contract.ILevel;

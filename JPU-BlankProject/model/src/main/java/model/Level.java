@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,16 +7,15 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import javax.swing.JOptionPane;
+
 import contract.IActor;
 import contract.IElement;
 import contract.ILevel;
-import Entity.Actor;
 import Entity.Boulder;
 import Entity.Diamond;
 import Entity.Emptyspace;
-import Entity.Ground;
 import Entity.ObjectFactory;
-import Entity.Rockford;
 import Entity.Wall;
 
 public class Level extends Observable implements ILevel {
@@ -36,28 +34,33 @@ public class Level extends Observable implements ILevel {
 	  private ArrayList<IActor> pawns;
 
     /**
-     * Instantiates a new level with the content of the file fileName.
+     * Instantiates a new level with the content of the file levelName.
      *
-     * @param fileName
+     * @param levelName
      *            the file name where the map of the level is
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
-    Level(final String fileName) throws IOException {
+    Level() throws IOException {
         super();
-        this.loadFile(fileName);
+Object[] levelchoice = {1, 2, 3, 4, 5, 6};
+		
+		int level = (int)JOptionPane.showInputDialog(null, "Choose your level", "BoulderDash", JOptionPane.QUESTION_MESSAGE, null, levelchoice, levelchoice[0]);
+		
+		JOptionPane.showMessageDialog(null, "Vous avez choisi le niveau" + level, null, JOptionPane.INFORMATION_MESSAGE);
+        this.loadFile("src/map"+level+".txt");
     }
 
     /**
      * Loads file.
      *
-     * @param fileName
+     * @param levelName
      *            the file name
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
-    private void loadFile(final String fileName) throws IOException {
-        final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+    private void loadFile(final String levelName) throws IOException {
+        final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(levelName)));
         String line;
         int y = 0;
         line = buffer.readLine();
@@ -111,7 +114,7 @@ public class Level extends Observable implements ILevel {
 
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.IRoad#getHeight()
+     * @see fr.exia.insanevehicles.model.Ilevel#getHeight()
      */
     @Override
     public final int getHeight() {
@@ -130,7 +133,7 @@ public class Level extends Observable implements ILevel {
 
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.IRoad#getOnTheRoadXY(int, int)
+     * @see fr.exia.insanevehicles.model.Ilevel#getOnThelevelXY(int, int)
      */
     @Override
     public final IElement getOnTheLevelXY( int x,  int y) {
@@ -138,7 +141,7 @@ public class Level extends Observable implements ILevel {
     }
 
     /**
-     * Sets the on the road XY.
+     * Sets the on the level XY.
      *
      * @param element
      *            the element
@@ -154,7 +157,7 @@ public class Level extends Observable implements ILevel {
 
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.IRoad#setMobileHasChanged()
+     * @see fr.exia.insanevehicles.model.Ilevel#setMobileHasChanged()
      */
     @Override
     public final void setActorHasChanged() {
@@ -164,7 +167,7 @@ public class Level extends Observable implements ILevel {
 
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.IRoad#getObservable()
+     * @see contract.ILevel#getObservable()
      */
     @Override
     public Observable getObservable() {

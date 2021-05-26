@@ -1,7 +1,5 @@
 package contract;
 
-import java.io.IOException;
-
 /**
  * <h1>The Interface IModel.</h1>
  *
