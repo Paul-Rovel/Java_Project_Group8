@@ -17,6 +17,26 @@ public class Object extends Element {
         super(sprite, permeability);
     }
 
+	public void setImgObject(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public java.lang.Object getImgObject() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setIconObject(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public java.lang.Object getIconObject() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
     	
     }
  
