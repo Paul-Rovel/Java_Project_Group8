@@ -26,7 +26,9 @@ public interface IView {
 	     */
 	    void updateBoard();
 
-		void drawScore(String string);
+		void drawStep(int step);
+		
+		public void drawDiamondcollected(int diamondscollected);
 		
 		
 }

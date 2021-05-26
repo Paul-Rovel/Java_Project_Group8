@@ -51,7 +51,7 @@ import javax.swing.JPanel;
  * @see Observer
  * @see Observable
  */
-class BoardPanel extends JPanel implements Observer {
+public class BoardPanel extends JPanel implements Observer {
 
     /** The Constant serialVersionUID. */
     private static final long   serialVersionUID = -3618605287900763008L;
@@ -80,7 +80,8 @@ class BoardPanel extends JPanel implements Observer {
     /** The height looped. */
     private Boolean             heightLooped     = false;
     
-    private String score;
+    private int step;
+    private int diamondscollected;
 
     /**
      * Instantiates a new board panel.
@@ -117,13 +118,16 @@ class BoardPanel extends JPanel implements Observer {
             for (int y = this.getCornerMinY(); y <= this.getCornerMaxY(); y++) {
                 this.drawSquareXY(graphics, x, y);
                 this.drawPawnsXY(graphics, mapPawn, x, y);
-                this.setScore(score);
+                this.setStep(step);
+                this.setDiamondscollected(diamondscollected);
             }
         }
-        Font fonte = new Font(" TimesRoman ",Font.BOLD,30);
-        g2.setColor(Color.green);
+        Font fonte = new Font(" TimesRoman ",Font.BOLD,25);
+        g2.setColor(Color.red);
         g2.setFont(fonte);
-        g2.drawString("Score : " + score ,5, 30);
+        g2.drawString("Steps : " + step ,5, 30);
+        g2.drawString("Diamond number : " + diamondscollected + " / 15" ,465, 30);
+        
       //  System.out.println("Je passe par la");
     }
 
@@ -453,11 +457,17 @@ class BoardPanel extends JPanel implements Observer {
     }
 
 	/**
-	 * @param score
-	 * 		 the score to set
+	 * @param step
+	 * 		 the step to set
 	 */
-	public void setScore(String score) {
-		this.score = score;
+	public void setStep(int step) {
+		this.step = step;
+		this.repaint();
+	}
+
+
+	public void setDiamondscollected(int diamondscollected) {
+		this.diamondscollected = diamondscollected;
 		this.repaint();
 	}
 

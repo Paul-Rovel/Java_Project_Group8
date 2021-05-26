@@ -6,6 +6,8 @@ import contract.IActor;
 import contract.ILevel;
 import contract.Permeability;
 import contract.Sprite;
+import fr.exia.showboard.BoardFrame;
+
 
 
 /**
@@ -30,6 +32,10 @@ public class Actor extends Element implements IActor {
 
     /** The board. */
     private IBoard  board;
+
+	public static int diamondnumber=0;
+
+	private int stepnumber=0;
 
     /**
      * Instantiates a new Actor.
@@ -82,16 +88,25 @@ public class Actor extends Element implements IActor {
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Diamond ) {this.setY(this.getY()-1);
     		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
+    		diamondnumber++;
+    		BoardFrame.setDiamondscollected(diamondnumber);
+    		stepnumber++;
+            BoardFrame.setStep(stepnumber);
     		System.out.println("en bas d'un diamant, rockford peut monter!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Ground ) {this.setY(this.getY()-1);
     		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
+    		stepnumber++;
+            BoardFrame.setStep(stepnumber);
     		System.out.println("en bas d'un ground, rockford peut monter!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Emptyspace ) {
-    	this.setY(this.getY()-1);
+    		this.setY(this.getY()-1);
+    		stepnumber++;
+            BoardFrame.setStep(stepnumber);
     		}
         this.setHasMoved();	
+        
     	}
     	
         }
@@ -116,19 +131,29 @@ public class Actor extends Element implements IActor {
     				this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX()-1, this.getY());
     				this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), this.getX()-2, this.getY());
     				this.setX((this.getX()-1));
-    				System.out.println("à droite d'un rocher, rockford ne peut pas aller à gauche en remplacant le rocher!");
+    				stepnumber++;
+    	            BoardFrame.setStep(stepnumber);
+    				System.out.println("à droite d'un rocher, rockford peut aller à gauche en remplacant le rocher!");
     				}
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Diamond ) {this.setX(this.getX()-1);
     		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
+    		diamondnumber++;
+    		BoardFrame.setDiamondscollected(diamondnumber);
+    		stepnumber++;
+            BoardFrame.setStep(stepnumber);
     		System.out.println("à droite d'un diamant, rockford peut aller à gauche!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Ground ) {this.setX(this.getX()-1);
     		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
+    		stepnumber++;
+            BoardFrame.setStep(stepnumber);
     		System.out.println("à droite d'un ground, rockford peut aller à gauche!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Emptyspace ) {
     		this.setX(this.getX()-1);
+    		stepnumber++;
+            BoardFrame.setStep(stepnumber);
     		}
         this.setHasMoved();
         }
@@ -146,17 +171,25 @@ public class Actor extends Element implements IActor {
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Diamond ) {this.setY(this.getY()+1);
     		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
+    		diamondnumber++;
+   		 	BoardFrame.setDiamondscollected(diamondnumber);
+   		 	stepnumber++;
+   		 	BoardFrame.setStep(stepnumber);
     		System.out.println("en haut d'un diamant, rockford peut descendre!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Ground ) {this.setY(this.getY()+1);
     		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
+    		stepnumber++;
+            BoardFrame.setStep(stepnumber);
     		System.out.println("en haut d'un ground, rockford peut descendre!");
     		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Emptyspace ) {
-    	this.setY(this.getY()+1);
+    		this.setY(this.getY()+1);
+    		stepnumber++;
+            BoardFrame.setStep(stepnumber);
     		}
-        this.setHasMoved();	
-        
+    		this.setHasMoved();	
+       
     }
 
     /*
@@ -178,23 +211,33 @@ public class Actor extends Element implements IActor {
     	    				this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX()+1, this.getY());
     	    				this.getLevel().setOnTheLevelXY(ObjectFactory.createBoulder(), this.getX()+2, this.getY());
     	    				this.setX((this.getX()+1)); 
-    	    				System.out.println("à droite d'un rocher, rockford ne peut pas aller à gauche en remplacant le rocher!");
+    	    				stepnumber++;
+    	    	            BoardFrame.setStep(stepnumber);
+    	    				System.out.println("à droite d'un rocher, rockford peut aller à gauche en remplacant le rocher!");
     	    				}
     	    		}
     	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Diamond ) {
     	    		this.setX(this.getX()+1);
     	    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
+    	    		diamondnumber++;
+    	    		stepnumber++;
+    	            BoardFrame.setStep(stepnumber);
+    	    		BoardFrame.setDiamondscollected(diamondnumber);
     	    		System.out.println("à droite d'un diamant, rockford peut aller à gauche!");
     	    		}
     	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Ground ) {
     	    		this.setX(this.getX()+1);
-    	    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), this.getX(), this.getY());
+    	    		this.getLevel().setOnTheLevelXY(ObjectFactory.createEmptyspace(), 
+    	    		this.getX(), this.getY());
+    	    		stepnumber++;
+    	            BoardFrame.setStep(stepnumber);
     	    		System.out.println("à droite d'un ground, rockford peut aller à gauche!");
     	    		}
     	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Emptyspace ) {
     	    		this.setX(this.getX()+1);
     	    		}
-    	        this.setHasMoved();
+    	    		this.setHasMoved();
+    	    		
         }
     }
 

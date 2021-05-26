@@ -24,7 +24,7 @@ public final class Model extends Observable implements IModel {
 
     /** The Constant startY. */
     private static final int startY = 1;
-    /** The road. */
+    /** The level. */
     private ILevel   level;
 
     /** The my vehicle. */
@@ -49,7 +49,7 @@ public final class Model extends Observable implements IModel {
     }
 
     /* (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.IInsaneVehiclesModel#getRoad()
+     * @see fr.exia.insanevehicles.model.IInsaneVehiclesModel#getlevel()
      */
     @Override
     public final ILevel getLevel() {
@@ -57,17 +57,17 @@ public final class Model extends Observable implements IModel {
     }
 
     /**
-     * Sets the road.
+     * Sets the level.
      *
-     * @param road
-     *            the road to set
+     * @param level
+     *            the level to set
      */
     private void setLevel(final ILevel level) {
         this.level = level;
     }
 
     /* (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.IInsaneVehiclesModel#getMyVehicle()
+     * @see model.Model#getMyVehicle()
      */
     @Override
     public final IActor getRockford() {

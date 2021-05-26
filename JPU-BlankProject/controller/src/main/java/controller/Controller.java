@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import Entity.Actor;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
@@ -54,9 +55,9 @@ public final class Controller implements IController, IOrderPerformer {
     @Override
     public final void play() throws InterruptedException, Exception {
         while (this.getModel().getRockford().isAlive()) {
-           
+        	 this.getModel().getLevel().rockfall();
+        	
             Thread.sleep(speed);
-       	 this.getModel().getLevel().rockfall();
          this.getView().updateBoard();
             switch (this.getStackOrder()) {
                 case RIGHT:
@@ -79,12 +80,16 @@ public final class Controller implements IController, IOrderPerformer {
             }
             this.clearStackOrder();
             this.getView().updateBoard();
-            if (this.getModel().getRockford().isAlive()) {
-            
-            }
+            	if(Actor.diamondnumber > 10 ) {
+            	this.getView().displayMessage("!!!!!!!!! YOU WON !!!!!!!!!.");
+            	}
+            	else {
+            		
+            	}
             this.getView().followRockford();
+            }
         
-        }
+        
         this.getView().displayMessage("!!!!!!!!! YOU DIED !!!!!!!!!.");
     }
 

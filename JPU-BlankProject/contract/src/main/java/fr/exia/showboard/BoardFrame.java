@@ -34,7 +34,7 @@ public class BoardFrame extends JFrame implements IBoard {
     private static final int  defaultFrameSize = 700;
 
     /** The board panel. */
-    private final BoardPanel  boardPanel;
+    private static BoardPanel  boardPanel;
 
     /**
      * Instantiates a new board frame.
@@ -51,8 +51,8 @@ public class BoardFrame extends JFrame implements IBoard {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setUndecorated(decorated);
-        this.boardPanel = new BoardPanel();
-        this.setContentPane(this.boardPanel);
+        BoardFrame.boardPanel = new BoardPanel();
+        this.setContentPane(BoardFrame.boardPanel);
         this.setResizable(true);
         this.setVisible(true);
     }
@@ -153,7 +153,7 @@ public class BoardFrame extends JFrame implements IBoard {
      * @return the board panel
      */
     private BoardPanel getBoardPanel() {
-        return this.boardPanel;
+        return BoardFrame.boardPanel;
     }
 
     /**
@@ -194,9 +194,13 @@ public class BoardFrame extends JFrame implements IBoard {
         this.getBoardPanel().setHeightLooped(heightLooped);
     }
     /**
-     * @param score set score
+     * @param step set step
      */
-    public void setScore(String score) {
-    	this.boardPanel.setScore(score);
+    public static void setStep(int step) {
+    	BoardFrame.boardPanel.setStep(step);
 	}
+    public static void setDiamondscollected(int diamondscollected) {
+		BoardFrame.boardPanel.setDiamondscollected(diamondscollected);
+	}
+    
 }

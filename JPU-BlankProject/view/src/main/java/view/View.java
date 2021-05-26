@@ -37,6 +37,7 @@ public class View implements Runnable, KeyListener, IView {
     private Rectangle closeView;
 
     /** The list of pawns. */
+	@SuppressWarnings("unused")
 	private ArrayList<IActor> pawns;
     
     /** The level. */
@@ -154,21 +155,7 @@ public class View implements Runnable, KeyListener, IView {
             case KeyEvent.VK_DOWN:
                 userOrder = ControllerOrder.DOWN;
                 break;
-            case KeyEvent.VK_1:
-                userOrder = ControllerOrder.MAP1;
-                break;
-            case KeyEvent.VK_2:
-                    userOrder = ControllerOrder.MAP2;
-                    break;
-            case KeyEvent.VK_3:
-                    userOrder = ControllerOrder.MAP3;
-                    break;
-            case KeyEvent.VK_4:
-                    userOrder = ControllerOrder.MAP4;
-                    break;
-            case KeyEvent.VK_5:
-                    userOrder = ControllerOrder.MAP5;
-                    break;
+           
             
             default:
                 userOrder = ControllerOrder.NOP;
@@ -354,12 +341,17 @@ public class View implements Runnable, KeyListener, IView {
 	}
 	
 	/**
-	 * @param score score to set
+	 * @param step step to set
 	 */
-	public void drawScore(String score) {
-        boardFrame.setScore(score);
-    }
     
-	
+	public void drawDiamondcollected(int diamondscollected) {
+        BoardFrame.setDiamondscollected(diamondscollected);
+    }
+
+	@Override
+	public void drawStep(int step) {
+		BoardFrame.setStep(step);
+		
+	}
 	
 }
