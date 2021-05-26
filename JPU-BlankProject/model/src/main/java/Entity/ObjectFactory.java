@@ -23,12 +23,15 @@ public class ObjectFactory {
 
     /** The Constant ground. */
     private static final Ground  ground  = new Ground();
+    
+    /** The Constant ennemy. */
+    private static final Ennemy ennemy = new Ennemy();
 
 
     /**
      * The object is an array of all possible objects.
      */
-    private static Object[]     object  = {boulder, diamond, emptyspace, ground, wall,};
+    private static Object[]     object  = {boulder, diamond, emptyspace, ground, wall, ennemy,};
 
     /**
      * Creates a new object.
@@ -75,6 +78,14 @@ public class ObjectFactory {
         return wall;
     }
     
+    /**
+     * Creates a new MotionlessElements object.
+     *
+     * @return the motionless element
+     */
+    public static Object createEnnemy() {
+        return ennemy;
+    }
 
     /**
      * Gets the good object from file symbol.

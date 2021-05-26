@@ -1,14 +1,27 @@
 package Entity;
 
-import contract.ILevel;
 import contract.Permeability;
 import contract.Sprite;
 
-public class Ennemy extends Actor {
+/**
+ * <h1>The Ennemy Class.</h1>
+ *
+ * @author Paul-Kamga
+ * @version 0.2
+ */
 
-	Ennemy(int x, int y, Sprite sprite, ILevel road, Permeability permeability) {
-		super(x, y, sprite, road, permeability);
-		// TODO Auto-generated constructor stub
-	}
+public class Ennemy extends Object {
 
+	/** The Constant SPRITE. */
+    private static final Sprite SPRITE = new Sprite('5', "Ennemynop.png");
+    private static String NAME = "Ennemy";
+
+    /**
+     * Instantiates a new Ennemy.
+     */
+    Ennemy() {
+        super(SPRITE, Permeability.BLOCKING);
+        this.name = NAME;
+    }
+	
 }

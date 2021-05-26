@@ -126,7 +126,7 @@ public class BoardPanel extends JPanel implements Observer {
         g2.setColor(Color.red);
         g2.setFont(fonte);
         g2.drawString("Steps : " + step ,5, 30);
-        g2.drawString("Diamond number : " + diamondscollected + " / 15" ,465, 30);
+        g2.drawString("Diamond number : " + diamondscollected + " / 10" ,465, 30);
         
       //  System.out.println("Je passe par la");
     }

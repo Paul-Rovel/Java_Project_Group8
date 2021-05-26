@@ -55,7 +55,7 @@ public final class Controller implements IController, IOrderPerformer {
     @Override
     public final void play() throws InterruptedException, Exception {
         while (this.getModel().getRockford().isAlive()) {
-        	 this.getModel().getLevel().rockfall();
+        	 this.getModel().getLevel().elementsfall();
         	
             Thread.sleep(speed);
          this.getView().updateBoard();
@@ -80,7 +80,7 @@ public final class Controller implements IController, IOrderPerformer {
             }
             this.clearStackOrder();
             this.getView().updateBoard();
-            	if(Actor.diamondnumber > 10 ) {
+            	if(Actor.diamondnumber > 9 ) {
             	this.getView().displayMessage("!!!!!!!!! YOU WON !!!!!!!!!.");
             	}
             	else {

@@ -15,6 +15,7 @@ import contract.ILevel;
 import Entity.Boulder;
 import Entity.Diamond;
 import Entity.Emptyspace;
+import Entity.Ennemy;
 import Entity.ObjectFactory;
 import Entity.Wall;
 
@@ -85,6 +86,9 @@ Object[] levelchoice = {1, 2, 3, 4, 5, 6};
                     }
             	if (line.toCharArray()[x] == '4') {
                     this.setOnTheLevelXY(ObjectFactory.createWall(), x, y);
+                    }
+            	if (line.toCharArray()[x] == '5') {
+                    this.setOnTheLevelXY(ObjectFactory.createEnnemy(), x, y);
                     }
             }
             line = buffer.readLine();
@@ -229,7 +233,7 @@ Object[] levelchoice = {1, 2, 3, 4, 5, 6};
 	}
 
 	@Override
-	public void rockfall() throws IOException {
+	public void elementsfall() throws IOException {
 
     	for(int x = 1; x < 16; x++){
     		
@@ -243,11 +247,15 @@ Object[] levelchoice = {1, 2, 3, 4, 5, 6};
                      if(getOnTheLevelXY(x,y+1) instanceof Emptyspace ) {// if the block under the Boulder is a Emptyspace
     					setOnTheLevelXY(ObjectFactory.createBoulder(), x, y+1); // create a Boulder under the Boulder
     					setOnTheLevelXY(ObjectFactory.createEmptyspace(), x, y); // create an Emptyspace on the old position of the Boulder
-    					
-    					
+
     				}
     				
-    				
+                     else if(getOnTheLevelXY(x,y+1) instanceof Ennemy) {
+                    	 setOnTheLevelXY(ObjectFactory.createBoulder(), x, y+1);
+                    	 setOnTheLevelXY(ObjectFactory.createDiamond(), x, y);
+                    	 setOnTheLevelXY(ObjectFactory.createDiamond(), x-1, y+1);
+                    	 setOnTheLevelXY(ObjectFactory.createDiamond(), x+1, y+1);
+                     }
     				
     				else if(getOnTheLevelXY(x,y+1) instanceof Boulder) {// if the element under the Boulder is a Boulder
 		    				if(getOnTheLevelXY(x-1,y) instanceof Emptyspace) { // left side of Boulder empty

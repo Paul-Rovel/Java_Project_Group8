@@ -2,7 +2,6 @@ package Entity;
 
 import contract.Permeability;
 import contract.Sprite;
-import contract.ILevel;
 
 public class Object extends Element {
 

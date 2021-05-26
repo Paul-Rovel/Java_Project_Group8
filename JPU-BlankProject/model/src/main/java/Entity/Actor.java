@@ -100,6 +100,11 @@ public class Actor extends Element implements IActor {
             BoardFrame.setStep(stepnumber);
     		System.out.println("en bas d'un ground, rockford peut monter!");
     		}
+    		else if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Ennemy ) {
+        		this.setY(this.getY()-1);
+        		stepnumber++;
+                BoardFrame.setStep(stepnumber);
+            }
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()-1) instanceof Emptyspace ) {
     		this.setY(this.getY()-1);
     		stepnumber++;
@@ -150,6 +155,11 @@ public class Actor extends Element implements IActor {
             BoardFrame.setStep(stepnumber);
     		System.out.println("à droite d'un ground, rockford peut aller à gauche!");
     		}
+    		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Ennemy ) {
+        		this.setX(this.getX()-1);
+        		stepnumber++;
+                BoardFrame.setStep(stepnumber);
+    		}
     		else if (this.getLevel().getOnTheLevelXY(getX()-1, getY()) instanceof Emptyspace ) {
     		this.setX(this.getX()-1);
     		stepnumber++;
@@ -183,6 +193,11 @@ public class Actor extends Element implements IActor {
             BoardFrame.setStep(stepnumber);
     		System.out.println("en haut d'un ground, rockford peut descendre!");
     		}
+    		else if (this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Ennemy ) {
+        		this.setY(this.getY()+1);
+        		stepnumber++;
+                BoardFrame.setStep(stepnumber);
+        		}
     		else if (this.getLevel().getOnTheLevelXY(getX(), getY()+1) instanceof Emptyspace ) {
     		this.setY(this.getY()+1);
     		stepnumber++;
@@ -233,8 +248,15 @@ public class Actor extends Element implements IActor {
     	            BoardFrame.setStep(stepnumber);
     	    		System.out.println("à droite d'un ground, rockford peut aller à gauche!");
     	    		}
+    	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Ennemy ) {
+        	    		this.setX(this.getX()+1);
+        	    		stepnumber++;
+        	            BoardFrame.setStep(stepnumber);
+    	    		}
     	    		else if (this.getLevel().getOnTheLevelXY(getX()+1, getY()) instanceof Emptyspace ) {
     	    		this.setX(this.getX()+1);
+    	    		stepnumber++;
+    	            BoardFrame.setStep(stepnumber);
     	    		}
     	    		this.setHasMoved();
     	    		
