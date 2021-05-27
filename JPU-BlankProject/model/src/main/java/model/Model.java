@@ -28,7 +28,7 @@ public final class Model extends Observable implements IModel {
     private IActor rockford;
 
     /**
-     * Instantiates a new insane vehicles model.
+     * Instantiates a new model.
      *
      * @param fileName
      *            the level name
@@ -46,7 +46,7 @@ public final class Model extends Observable implements IModel {
     }
 
     /* (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.IInsaneVehiclesModel#getlevel()
+     * @see model.Model#getlevel()
      */
     @Override
     public final ILevel getLevel() {
@@ -72,10 +72,10 @@ public final class Model extends Observable implements IModel {
     }
 
     /**
-     * Sets the my vehicle.
+     * Sets the Rockford.
      *
-     * @param myVehicle
-     *            the myVehicle to set
+     * @param rockford
+     *            the rockford to set
      */
     private void setRockford(final IActor rockford) {
         this.rockford = rockford;

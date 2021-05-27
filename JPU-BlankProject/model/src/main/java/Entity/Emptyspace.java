@@ -4,9 +4,9 @@ import contract.Permeability;
 import contract.Sprite;
 
 /**
- * <h1>The Boulder Class.</h1>
+ * <h1>The Emptyspace Class.</h1>
  *
- * @author Paul-Kamga
+ * @author Joseph
  * @version 0.2
  */
 

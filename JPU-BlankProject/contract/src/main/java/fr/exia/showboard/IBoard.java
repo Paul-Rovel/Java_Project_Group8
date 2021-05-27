@@ -7,7 +7,7 @@ import java.util.Observer;
 /**
  * <h1>The Interface IBoard.</h1>
  *
- * @author Paul-Kamga
+ * @author Paul-Kamga && Joseph
  * @version 1.0
  * @see Dimension
  * @see Rectangle

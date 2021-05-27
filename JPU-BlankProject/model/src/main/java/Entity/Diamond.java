@@ -4,7 +4,7 @@ import contract.Permeability;
 import contract.Sprite;
 
 /**
- * <h1>The Boulder Class.</h1>
+ * <h1>The Diamond Class.</h1>
  *
  * @author Paul-Kamga
  * @version 0.2

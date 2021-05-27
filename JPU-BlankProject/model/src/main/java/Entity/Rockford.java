@@ -33,7 +33,7 @@ public class Rockford extends Actor {
      *            the x
      * @param y
      *            the y
-     * @param road
+     * @param level
      *            the level
      * @throws IOException
      *             Signals that an I/O exception has occurred.
@@ -49,7 +49,7 @@ public class Rockford extends Actor {
 
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#moveLeft()
+     * @see contract.IActor#moveLeft()
      */
     @Override
     public final void moveLeft() {
@@ -59,7 +59,7 @@ public class Rockford extends Actor {
 
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#moveRight()
+     * @see contract.IActor#moveRight()
      */
     @Override
     public final void moveRight() {
@@ -69,7 +69,7 @@ public class Rockford extends Actor {
 
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#moveLeft()
+     * @see contract.IActor#moveLeft()
      */
     @Override
     public final void moveUp() {
@@ -79,7 +79,7 @@ public class Rockford extends Actor {
     
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#moveLeft()
+     * @see contract.IActor#moveLeft()
      */
     @Override
     public final void moveDown() {
@@ -89,7 +89,7 @@ public class Rockford extends Actor {
     
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#die()
+     * @see contract.IActor#die()
      */
     @Override
     protected final void die() {
@@ -99,7 +99,7 @@ public class Rockford extends Actor {
 
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#doNothing()
+     * @see contract.IActor#doNothing()
      */
     @Override
     public final void doNothing() {

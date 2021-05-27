@@ -1,17 +1,13 @@
 package view;
 
-import java.lang.System.Logger.Level;
-
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import view.View;
 public class ViewTest {
-    private int view;
-	@BeforeClass
+	
+    @BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
 

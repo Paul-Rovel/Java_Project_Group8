@@ -11,7 +11,7 @@ import contract.Sprite;
 /**
  * <h1>The Element Class.</h1>
  *
- * @author Paul-Kamga
+ * @author Paul-Kamga && Joseph
  * @version 0.4
  * @see ISquare
  */

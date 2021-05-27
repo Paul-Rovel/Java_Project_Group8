@@ -45,7 +45,7 @@ public final class Controller implements IController, IOrderPerformer {
         this.setView(view);
         this.setModel(model);
         this.clearStackOrder(); 
-        this.dao = new DBConnection();
+        this.setDao(new DBConnection());
     }
 
     /*
@@ -91,14 +91,10 @@ public final class Controller implements IController, IOrderPerformer {
         }
     }
 
+   
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.controller.IOrderPerformed#orderPerform(fr.exia.insanevehicles.
-     * controller.UserOrder)
-     */
-    /*
-     * (non-Javadoc)
-     * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#orderPerform(fr.exia.
+     * @see contract.Controller#orderPerform(fr.exia.
      * insanevehicles.controller.UserOrder)
      */
     @Override
@@ -172,7 +168,7 @@ public final class Controller implements IController, IOrderPerformer {
 
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#getOrderPeformer()
+     * @see contract.Controller#getOrderPeformer()
      */
     @Override
     public IOrderPerformer getOrderPeformer() {
@@ -183,6 +179,14 @@ public final class Controller implements IController, IOrderPerformer {
 	public void control() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public DBConnection getDao() {
+		return dao;
+	}
+
+	public void setDao(DBConnection dao) {
+		this.dao = dao;
 	}
 
 	

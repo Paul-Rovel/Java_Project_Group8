@@ -35,10 +35,10 @@ public class Level extends Observable implements ILevel {
 	  private ArrayList<IActor> pawns;
 
     /**
-     * Instantiates a new level with the content of the file levelName.
+     * Instantiates a new level with the content of the levelName.
      *
      * @param levelName
-     *            the file name where the map of the level is
+     *            the level name where the map of the level is
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
@@ -53,10 +53,10 @@ Object[] levelchoice = {1, 2, 3, 4, 5, 6};
     }
 
     /**
-     * Loads file.
+     * Loads level.
      *
      * @param levelName
-     *            the file name
+     *            the level name
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
@@ -232,6 +232,12 @@ Object[] levelchoice = {1, 2, 3, 4, 5, 6};
 		return 0;
 	}
 
+	
+	/**
+     * Make the objects fall.
+     *
+     * 
+     */
 	@Override
 	public void elementsfall() throws IOException {
 

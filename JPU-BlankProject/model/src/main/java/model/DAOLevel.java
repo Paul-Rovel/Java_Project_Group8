@@ -10,7 +10,7 @@ import entity.HelloWorld;
 /**
  * The Class DAOHelloWorld.
  *
- * @author Paul-Kamga
+ * @author Imelda && Paul-Kamga
  */
  class DAOLevel extends DAOEntity<HelloWorld> {
 

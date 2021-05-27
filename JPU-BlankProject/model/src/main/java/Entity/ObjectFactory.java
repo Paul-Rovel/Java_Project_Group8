@@ -43,60 +43,60 @@ public class ObjectFactory {
     }
 
     /**
-     * Creates a new MotionlessElements object.
+     * Creates a new object.
      *
-     * @return the motionless element
+     * @return the object
      */
     public static Object createDiamond() {
         return diamond;
     }
 
     /**
-     * Creates a new MotionlessElements object.
+     * Creates a new object.
      *
-     * @return the motionless element
+     * @return the object
      */
     public static Object createEmptyspace() {
         return emptyspace;
     }
 
     /**
-     * Creates a new MotionlessElements object.
+     * Creates a new object.
      *
-     * @return the motionless element
+     * @return the object
      */
     public static Object createGround() {
         return ground;
     }
 
     /**
-     * Creates a new MotionlessElements object.
+     * Creates a new object.
      *
-     * @return the motionless element
+     * @return the object
      */
     public static Object createWall() {
         return wall;
     }
     
     /**
-     * Creates a new MotionlessElements object.
+     * Creates a new object.
      *
-     * @return the motionless element
+     * @return the object
      */
     public static Object createEnnemy() {
         return ennemy;
     }
 
     /**
-     * Gets the good object from file symbol.
+     * Gets the good object from level symbol.
      *
-     * @param fileSymbol
-     *            the file symbol
-     * @return the from file symbol
+     * @param levelName
+     *            the level name
+     * @return the from level symbol
      */
-    public static Object getFromFileSymbol(final char fileSymbol) {
+    public static Object getFromFileSymbol(final char levelSymbol) {
         for (final Object object : object) {
-            if (object.getSprite().getConsoleImage() == fileSymbol) {
+            if (object.getSprite().getConsoleImage() == levelSymbol) {
                 return object;
             }
         }

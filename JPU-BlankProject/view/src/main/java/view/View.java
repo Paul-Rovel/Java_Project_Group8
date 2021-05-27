@@ -18,9 +18,9 @@ import contract.ILevel;
 import contract.ControllerOrder;
 
 /**
- * <h1>The InsaneVehiclesView Class.</h1>
+ * <h1>The View Class.</h1>
  *
- * @author Paul-Kamga
+ * @author Paul-Kamga && Joseph
  * @version 0.4
  */
 
@@ -80,7 +80,7 @@ public class View implements Runnable, KeyListener, IView {
 
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.view.IInsaneVehiclesView#displayMessage(java.lang.String)
+     * @see contract.IView#displayMessage(java.lang.String)
      */
     @Override
     public final void displayMessage(final String message) {
@@ -113,7 +113,7 @@ public class View implements Runnable, KeyListener, IView {
     }
 
     /**
-     * Prints the road and the player's vehicle in the console.
+     * Prints the level and the player's vehicle in the console.
      *
      * @param yStart
      *            the y start
@@ -197,7 +197,7 @@ public class View implements Runnable, KeyListener, IView {
 
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.view.IInsaneVehiclesView#followMyvehicle()
+     * @see contract.IView#followMyvehicle()
      */
     @Override
     public final void followRockford() {
@@ -226,10 +226,10 @@ public class View implements Runnable, KeyListener, IView {
     }
 
     /**
-     * Sets the road.
+     * Sets the level.
      *
-     * @param road
-     *            the new road
+     * @param level
+     *            the new level
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
@@ -252,10 +252,10 @@ public class View implements Runnable, KeyListener, IView {
     }
 
     /**
-     * Sets my vehicle.
+     * Sets Rockford.
      *
-     * @param myVehicle
-     *            my new vehicle
+     * @param Rockford
+     *            my new rockford
      */
     private void setRockford(final IActor rockford) {
         this.rockford = rockford;

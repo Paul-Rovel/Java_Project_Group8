@@ -119,7 +119,7 @@ public class Actor extends Element implements IActor {
 
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#moveLeft()
+     * @see contract.IActor#moveLeft()
      */
     @Override
     public void moveLeft() {
@@ -172,7 +172,7 @@ public class Actor extends Element implements IActor {
 
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#moveDown()
+     * @see contract.IActor#moveDown()
      */
     @Override
     public void moveDown() {
@@ -209,7 +209,7 @@ public class Actor extends Element implements IActor {
 
     /*
      * (non-Javadoc)
-     * @see  model.element.Actor.IActor#moveRight()
+     * @see  contract.IActor#moveRight()
      */
     @Override
     public void moveRight() {
@@ -265,7 +265,7 @@ public class Actor extends Element implements IActor {
 
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#doNothing()
+     * @see contract.IActor#doNothing()
      */
     @Override
     public void doNothing() {
@@ -282,7 +282,7 @@ public class Actor extends Element implements IActor {
     
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#getX()
+     * @see contract.IActor#getX()
      */
     @Override
     public final int getX() {
@@ -306,7 +306,7 @@ public class Actor extends Element implements IActor {
 
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.element.mobile.IMobile#getY()
+     * @see contract.IMobile#getY()
      */
     @Override
     public final int getY() {
@@ -348,7 +348,7 @@ public class Actor extends Element implements IActor {
 
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor.IMobile#isAlive()
+     * @see contract.IActor#isAlive()
      */
     @Override
     public Boolean isAlive() {
@@ -365,7 +365,7 @@ public class Actor extends Element implements IActor {
     
     /*
      * (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.element.mobile.IMobile#isCrashed()
+     * @see contract.IActor#isCrushed()
      */
     @Override
     public Boolean isCrushed() {
@@ -378,7 +378,7 @@ public class Actor extends Element implements IActor {
      */
     /*
      * (non-Javadoc)
-     * @see model.element.Actor.IActor#getPosition()
+     * @see contract.IActor#getPosition()
      */
     @Override
     public Point getPosition() {
