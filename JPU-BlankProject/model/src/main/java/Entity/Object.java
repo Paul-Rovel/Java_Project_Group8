@@ -32,11 +32,6 @@ public class Object extends Element {
 		
 	}
 
-	public java.lang.Object getIconObject() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
     	
     }
  
