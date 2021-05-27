@@ -7,15 +7,13 @@ import fr.exia.showboard.IPawn;
 /**
  * <h1>The Interface IActor.</h1>
  *
- * @author Paul-Kamga
+ * @author Imelda
  * @version 0.1
  * @see IPawn
  * @see IElement
  */
 
 public interface IActor extends IPawn, IElement {
-
-
     /**
      * Move up
      */
@@ -69,7 +67,7 @@ public interface IActor extends IPawn, IElement {
 
     
     /**
-     * Checks if the car crashed.
+     * Checks if the rockford is crushed.
      *
      * @return the boolean
      */

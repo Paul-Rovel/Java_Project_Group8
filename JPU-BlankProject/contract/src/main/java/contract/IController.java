@@ -5,7 +5,7 @@ import java.io.IOException;
 /**
  * The Interface IController.
  *
- * @author Paul-Kamga
+ * @author Joseph
  */
 public interface IController {
 

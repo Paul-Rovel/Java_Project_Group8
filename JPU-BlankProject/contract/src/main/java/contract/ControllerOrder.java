@@ -3,7 +3,7 @@ package contract;
 /**
  * The Enum ControllerOrder.
  *
- * @author Paul-Kamga
+ * @author Imelda
  */
 public enum ControllerOrder {
 
@@ -17,6 +17,5 @@ public enum ControllerOrder {
 	DOWN,
 	/** The nop. */
 	NOP,
-
 
 }
