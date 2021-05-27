@@ -1,5 +1,8 @@
 package view;
 
+import java.lang.System.Logger.Level;
+
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -41,6 +44,8 @@ public class ViewTest {
 
 	@Test
 	public void testGetLevel() {
+		Level excepted = null;
+		//assertEquals(excepted, Level.getLevel());
 	//	fail("Not yet implemented");
 	}
 
@@ -53,5 +58,16 @@ public class ViewTest {
 	public void testDrawStep() {
 	//	fail("Not yet implemented");
 	}
+	 @Test
+	    public void testkeyPressed() {
+	    }
+
+	    @Test
+	    public void testkeyReleased() {
+	    }
+
+	    @Test
+	    public void keyTyped() {
+	    }
 
 }
