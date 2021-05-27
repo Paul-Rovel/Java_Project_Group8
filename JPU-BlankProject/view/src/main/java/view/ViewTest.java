@@ -8,8 +8,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import view.View;
 public class ViewTest {
-
+    private int view;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -41,12 +42,14 @@ public class ViewTest {
 	//	fail("Not yet implemented");
 	}
 
-	@Test
-	public void testGetLevel() {
-		Level excepted = null;
+	//@Test
+	//public void testGetLevel() {
+		//Level expected = null;
+		//assertEquals(expected, Level.getLevel());
+		
 		//assertEquals(excepted, Level.getLevel());
 	//	fail("Not yet implemented");
-	}
+	
 
 	@Test
 	public void testDrawDiamondcollected() {

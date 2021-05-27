@@ -221,7 +221,7 @@ public class View implements Runnable, KeyListener, IView {
      *
      * @return the level
      */
-    public ILevel getLevel() {
+    public  ILevel getLevel() {
         return this.level;
     }
 
