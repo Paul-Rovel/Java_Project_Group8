@@ -1,48 +1,37 @@
 package Entity;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import javax.swing.ImageIcon;
+class RockfordTest {
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import Entity.Rockford;
-
-
-
-public class RockfordTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
 	}
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
 	}
 
-	@Before
-	public void setUp() throws Exception {
+	@BeforeEach
+	void setUp() throws Exception {
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@AfterEach
+	void tearDown() throws Exception {
 	}
 
 	@Test
-	public void testgetImgObject() {
-		ImageIcon expected = null;
-		Rockford.setImgObject(null);
-		assertEquals(expected, Rockford.getImgObject());
-		
+	void testDie() {
+	//	fail("Not yet implemented");
 	}
+
 	@Test
-	public void testgetIconObject() {
-		ImageIcon expected = null;
-		Rockford.setIconObject(null);
-		assertEquals(expected, Rockford.getIconObject());
-		
+	void testRockford() {
+	//	fail("Not yet implemented");
 	}
+
 }

@@ -1,34 +1,58 @@
 package Entity;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+class ActorTest {
 
-public class ActorTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
 	}
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
 	}
 
-	@Before
-	public void setUp() throws Exception {
+	@BeforeEach
+	void setUp() throws Exception {
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@AfterEach
+	void tearDown() throws Exception {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	void testActorSpriteILevelPermeability() {
+		//fail("Not yet implemented");
 	}
+
+	@Test
+	void testActorIntIntSpriteILevelPermeability() {
+		//fail("Not yet implemented");
+	}
+
+	@Test
+	void testMoveUp() {
+		//fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetLevel() {
+		//fail("Not yet implemented");
+	}
+
+	@Test
+	void testIsAlive() {
+		//fail("Not yet implemented");
+	}
+
+	@Test
+	void testIsCrushed() {
+	//	fail("Not yet implemented");
+	}
+
 
 }

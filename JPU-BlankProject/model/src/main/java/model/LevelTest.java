@@ -1,4 +1,4 @@
-package Entity;
+package model;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class BoulderTest {
+class LevelTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -25,8 +25,28 @@ class BoulderTest {
 	}
 
 	@Test
-	void testBoulder() {
-	//	fail("Not yet implemented");
+	void testLevel() {
+		//fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetWidth() {
+		//fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetHeight() {
+		//fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetOnTheLevelXY() {
+		//fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetOnTheLevelXY() {
+		//fail("Not yet implemented");
 	}
 
 }

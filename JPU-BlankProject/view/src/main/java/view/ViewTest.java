@@ -1,6 +1,4 @@
-package controller;
-
-import static org.junit.Assert.*;
+package view;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -8,7 +6,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class ControllerTest {
+public class ViewTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -27,28 +25,33 @@ public class ControllerTest {
 	}
 
 	@Test
-	public void testController() {
-		//fail("Not yet implemented");
+	public void testView() {
+	//	fail("Not yet implemented");
 	}
 
 	@Test
-	public void testPlay() {
-		//fail("Not yet implemented");
+	public void testDisplayMessage() {
+	//	fail("Not yet implemented");
 	}
 
 	@Test
-	public void testOrderPerform() {
-		//fail("Not yet implemented");
+	public void testRun() {
+	//	fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetOrderPeformer() {
-		//fail("Not yet implemented");
+	public void testGetLevel() {
+	//	fail("Not yet implemented");
 	}
 
 	@Test
-	public void testControl() {
-		//fail("Not yet implemented");
+	public void testDrawDiamondcollected() {
+	//	fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDrawStep() {
+	//	fail("Not yet implemented");
 	}
 
 }

@@ -1,50 +1,49 @@
 package model;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import contract.IActor;
+import contract.ILevel;
 
-import Entity.Rockford;
-import Entity.Actor;
+class ModelTest {
 
-public class ModelTest {
-
-	private static final Rockford Actor = null;
-	private static final Object character = null;
-	private static final Entity.Actor Rockford = null;
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testGetCharacter() {
-		Actor excepted = Rockford;
-		assertEquals(excepted, this.Rockford);
-	}
-	@Test
-	public void testSetLevel(){
-		int excepted = 1;
-		assertEquals(excepted, 1);
-		
-	}
+	private ILevel level;
+	private IActor rockford;
 	
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+	
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+	}
+
+
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+
+	@Test
+	void testGetLevel() {
+		final ILevel  expected = level;
+		assertEquals(expected, this.level);
+	}
+
+	@Test
+	void testGetRockford() {
+		IActor excepted = rockford;
+		assertEquals(excepted, this.rockford);
+	}
 
 }
