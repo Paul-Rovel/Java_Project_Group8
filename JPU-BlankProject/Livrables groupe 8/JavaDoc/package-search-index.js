@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"contract"},{"l":"controller"},{"l":"entity"},{"l":"Entity"},{"l":"fr.exia.showboard"},{"l":"main"},{"l":"model"},{"l":"view"}];updateSearchResults();
