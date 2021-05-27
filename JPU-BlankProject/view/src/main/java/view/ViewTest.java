@@ -56,18 +56,7 @@ public class ViewTest {
 	//	fail("Not yet implemented");
 	}
 
-	@Test
-	public void testDrawStep() {
-	//	fail("Not yet implemented");
-	}
-	 @Test
-	    public void testkeyPressed() {
-	    }
-
-	    @Test
-	    public void testkeyReleased() {
-	    }
-
+	
 	    @Test
 	    public void keyTyped() {
 	    }
