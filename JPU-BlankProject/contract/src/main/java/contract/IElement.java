@@ -6,7 +6,7 @@ import fr.exia.showboard.ISquare;
 /**
  * <h1>The Interface IElement.</h1>
  *
- * @author Paul-Kamga
+ * @author Joseph
  * @version 0.1
  * @see ISquare
  */

@@ -3,22 +3,22 @@ package contract;
 /**
  * <h1>The Interface IModel.</h1>
  *
- * @author Paul-Kamga
+ * @author Joseph
  * @version 0.1
  */
 public interface IModel {
 
     /**
-     * Gets the road.
+     * Gets the level.
      *
-     * @return the road
+     * @return the level
      */
     ILevel getLevel();
 
     /**
-     * Gets the my vehicle.
+     * Gets the my rockford.
      *
-     * @return the myVehicle
+     * @return the rockford
      */
     IActor getRockford();
     

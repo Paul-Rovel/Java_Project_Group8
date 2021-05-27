@@ -5,13 +5,11 @@ import java.io.IOException;
 /**
  * <h1>The Interface IOrderPerformer.</h1>
  * 
- * @author Paul-Kamga
+ * @author Joseph
  * @version 0.1
  */
 
 public interface IOrderPerformer {
-
-	
     /**
      * Order perform.
      *

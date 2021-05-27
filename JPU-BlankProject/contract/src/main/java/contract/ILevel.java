@@ -7,7 +7,7 @@ import java.util.Observable;
 /**
  * <h1>The Interface ILevel.</h1>
  *
- * @author Paul-Kamga
+ * @author Joseph
  * @version 0.1
  */
 
