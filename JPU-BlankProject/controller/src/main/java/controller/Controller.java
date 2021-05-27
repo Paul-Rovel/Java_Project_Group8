@@ -44,7 +44,7 @@ public final class Controller implements IController, IOrderPerformer {
     public Controller(final IView view, final IModel model) {
         this.setView(view);
         this.setModel(model);
-        this.clearStackOrder();
+        this.clearStackOrder(); 
         this.dao = new DBConnection();
     }
 

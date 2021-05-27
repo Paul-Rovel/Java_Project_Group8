@@ -8,9 +8,6 @@ import contract.ILevel;
 import contract.IModel;
 import Entity.Rockford;
 
-
-
-
 /**
  * <h1>The Class Model.</h1>
  *
