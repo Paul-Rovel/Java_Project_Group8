@@ -4,9 +4,15 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
@@ -67,13 +73,14 @@ public class View implements Runnable, KeyListener, IView {
      * @throws LineUnavailableException 
      * @throws UnsupportedAudioFileException 
      */
-    public View(final ILevel level, final IActor rockford, final ArrayList<IActor> pawns) throws IOException {
+    public View(final ILevel level, final IActor rockford, final ArrayList<IActor> pawns) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
     	super();
     	this.setView(levelView);
         this.setLevel(level);
         this.setRockford(rockford);
         this.getRockford().getSprite().loadImage();
         this.setPawns(pawns);
+        playSound();
         this.setCloseView(new Rectangle(0, this.getRockford().getY(), this.getLevel().getWidth(), levelView));
         SwingUtilities.invokeLater(this);
     }
@@ -352,6 +359,14 @@ public class View implements Runnable, KeyListener, IView {
 	public void drawStep(int step) {
 		BoardFrame.setStep(step);
 		
+	}
+	
+	private void playSound() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+		// TODO Auto-generated method stub
+		AudioInputStream audio = AudioSystem.getAudioInputStream(new File("game.wav").getAbsoluteFile());
+		Clip clip = AudioSystem.getClip();
+		clip.open(audio);
+		clip.start();
 	}
 	
 }
